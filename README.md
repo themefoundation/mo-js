@@ -1,4 +1,6 @@
-mo-js
+Menu Object (mo.js)
 =====
 
-Menu Object. A mobile-first, progressibly enhanced menu system.
+A mobile-first, progressively enhanced, standards based, responsive navigation menu system. Need any more buzzwords?
+
+

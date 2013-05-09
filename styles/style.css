@@ -1,0 +1,322 @@
+/* =Base Styles
+-------------------------------------------------------------- */
+
+.thmfdn-menu,
+.thmfdn-menu *{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.thmfdn-menu li{
+	position: relative;
+	white-space: nowrap;
+}
+
+.thmfdn-menu ul{
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+}
+
+.thmfdn-menu.menu-hover li:hover > ul{
+	display: block;
+}
+
+.thmfdn-menu a{
+	position: relative;
+}
+
+.thmfdn-menu ul li{
+	display: block;
+}
+
+.thmfdn-menu ul ul{
+	top: 0;
+	left: 100%;
+}
+
+
+/* =Standard Mobile Styles
+-------------------------------------------------------------- */
+
+.thmfdn-menu{
+	text-align: center;
+}
+
+.thmfdn-menu > li{
+	display: inline;
+}
+
+.thmfdn-menu > li > a{
+	display: inline-block;
+	margin: 0.25em 0;
+}
+
+.thmfdn-menu a{
+	padding: 0.75em 1em;
+}
+
+.thmfdn-menu ul{
+	margin-top: 0.90em;
+	text-align: left;
+}
+
+.thmfdn-menu ul a{
+	display: block;
+}
+
+.thmfdn-menu ul ul{
+	margin-top: 0em;
+}
+
+
+/* =Toggled Mobile Styles
+-------------------------------------------------------------- */
+
+.menu-toggle-button{
+	width: 3.25em;
+	height: 3em;
+	padding: 0.5em;
+	cursor: pointer;
+}
+
+.menu-toggle-button div:before{
+	content: '';
+	border-top: 0.4em solid #999;
+	display: block;
+	width: 2.25em;
+	margin-top: 0.4em;
+	right: 0;
+}
+
+.menu-toggle-button div{
+	content: '';
+	border-top: 0.4em solid #999;
+	display: block;
+	width: 2.25em;
+	float: right;
+}
+
+.menu-toggle-button div:after{
+	content: '';
+	border-top: 0.4em solid #999;
+	display: block;
+	width: 2.25em;
+	margin-top: 0.4em;
+}
+
+
+
+.menu-mobile.menu-arrows{
+	text-align: left;
+}
+
+.menu-mobile.menu-arrows > li > a{
+	display: block;
+	margin: 0;
+}
+
+.menu-mobile.menu-arrows ul{
+	position: relative;
+	top: auto;
+	margin-top: 0;
+	padding: 0.75em;
+}
+
+.menu-mobile.menu-arrows ul ul{
+	position: relative;
+	left: 0;
+}
+
+.hide-mobile{
+	display: none;
+}
+
+
+
+/* =Desktop Styles
+-------------------------------------------------------------- */
+
+@media screen and (min-width : 900px) {
+
+	.thmfdn-menu:after{
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+
+	.thmfdn-menu > li {
+		display: block;
+		float: left;
+	}
+
+	.thmfdn-menu > li > a{
+		margin: 0;
+	}
+
+	.thmfdn-menu ul{
+		margin-top: 0;
+	}
+
+}
+
+
+
+
+/* =Arrow Styles
+-------------------------------------------------------------- */
+
+.menu-arrows .has-submenu > a{
+	padding-right: 3.5em;
+}
+.menu-arrows .toggle-submenu{
+	width: 3em;
+	display: inline-block;
+	height: 3em;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+
+/* Standard arrow styles */
+.menu-arrows .toggle-submenu:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1.25em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+
+	border: 5px solid transparent;
+	border-top-color: #fff; /* IE8 */
+	border-top-color: rgba(255,255,255,.5);
+}
+
+.menu-arrows ul .toggle-submenu:after {
+	margin-top: -5px;
+	margin-right: -3px;
+
+	border: 5px solid transparent;
+	border-left-color: #fff; /* IE8 */
+	border-left-color: rgba(255,255,255,.5);
+}
+
+
+/* CSS hover menu arrow styles */
+.menu-arrows.menu-hover .has-submenu > a{
+	padding-right: 2em;
+}
+
+.menu-arrows.menu-hover .toggle-submenu{
+	width: 1.5em;
+}
+
+.menu-arrows.menu-hover .toggle-submenu:after {
+	right: .5em;
+}
+
+
+/* Javascript menu arrow styles */
+.menu-arrows .open-submenu > ul{
+	display: block;
+}
+
+.menu-arrows .open-submenu > a .toggle-submenu:after {
+	margin-top: -8px;
+
+	border: 5px solid transparent;
+	border-bottom-color: #fff; /* IE8 */
+	border-bottom-color: rgba(255,255,255,.5);
+}
+
+.menu-arrows ul .open-submenu > a .toggle-submenu:after {
+	margin-top: -5px;
+	margin-right: 5px;
+
+	border: 5px solid transparent;
+	border-right-color: #fff; /* IE8 */
+	border-right-color: rgba(255,255,255,.5);
+}
+
+
+/* Javascript mobile menu arrow styles */
+.menu-arrows.menu-mobile.menu-arrows ul a .toggle-submenu:after {
+	margin-top: -3px;
+	margin-right: -3px;
+
+	border: 5px solid transparent;
+	border-top-color: #fff; /* IE8 */
+	border-top-color: rgba(255,255,255,.5);
+}
+
+/* Javascript mobile menu arrow styles */
+.menu-arrows.menu-mobile.menu-arrows ul .open-submenu a .toggle-submenu:after {
+	margin-top: -8px;
+
+	border: 5px solid transparent;
+	border-bottom-color: #fff; /* IE8 */
+	border-bottom-color: rgba(255,255,255,.5);
+}
+
+
+
+
+
+
+
+
+
+/* =Colors
+-------------------------------------------------------------- */
+
+.thmfdn-menu,
+.thmfdn-menu a,
+.thmfdn-menu li,
+.thmfdn-menu ul{
+	background: #444;
+	color: #eee;
+}
+
+.thmfdn-menu a:hover{
+	background: rgba( 255, 255, 255, 0.15);
+}
+
+.menu-mobile.menu-arrows ul li:first-child a{
+	border-top: 1px solid rgba( 255, 255, 255, 0.1);
+}
+.menu-mobile.menu-arrows a{
+	border-bottom: 1px solid rgba( 255, 255, 255, 0.1);
+}
+
+.menu-mobile.menu-arrows .toggle-submenu{
+	background: none;
+}
+
+.menu-mobile.menu-arrows .toggle-submenu:hover{
+	background: rgba( 255, 255, 255, 0.1);
+}
+
+.menu-mobile.menu-arrows ul,
+.menu-mobile.menu-arrows ul a{
+	background: rgba( 255, 255, 255, 0.1);
+}
+
+.menu-mobile.menu-arrows ul ul,
+.menu-mobile.menu-arrows ul ul a{
+	background: rgba( 255, 255, 255, 0.2);
+}
+
+.menu-mobile.menu-arrows .open-submenu > a .toggle-submenu{
+	background: rgba( 255, 255, 255, 0.1 );
+}
+
