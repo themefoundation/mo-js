@@ -96,7 +96,6 @@
 }
 
 .menu-toggle-button div{
-	content: '';
 	border-top: 0.4em solid #999;
 	display: block;
 	width: 2.25em;
@@ -250,7 +249,7 @@
 
 
 /* Javascript mobile menu arrow styles */
-.menu-arrows.menu-mobile.menu-arrows ul a .toggle-submenu:after {
+.menu-arrows.is-mobile-menu.menu-arrows ul a .toggle-submenu:after {
 	margin-top: -3px;
 	margin-right: -3px;
 
@@ -260,7 +259,7 @@
 }
 
 /* Javascript mobile menu arrow styles */
-.menu-arrows.menu-mobile.menu-arrows ul .open-submenu a .toggle-submenu:after {
+.menu-arrows.is-mobile-menu.menu-arrows ul .open-submenu a .toggle-submenu:after {
 	margin-top: -8px;
 
 	border: 5px solid transparent;
