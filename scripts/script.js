@@ -7,7 +7,7 @@
 			toggleButtonID: 'menu-toggle-button',
 			hoverClass: 'menu-hover',
 			arrowClass: 'menu-arrows',
-			mobileClass: 'menu-mobile',
+			mobileClass: 'is-mobile-menu',
 			hideMobileClass: 'hide-mobile',
 			hasSubmenuClass: 'has-submenu',
 			openSubmenuClass: 'open-submenu',

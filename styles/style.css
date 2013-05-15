@@ -113,23 +113,23 @@
 
 
 
-.menu-mobile.menu-arrows{
+.is-mobile-menu.menu-arrows{
 	text-align: left;
 }
 
-.menu-mobile.menu-arrows > li > a{
+.is-mobile-menu.menu-arrows > li > a{
 	display: block;
 	margin: 0;
 }
 
-.menu-mobile.menu-arrows ul{
+.is-mobile-menu.menu-arrows ul{
 	position: relative;
 	top: auto;
 	margin-top: 0;
 	padding: 0.75em;
 }
 
-.menu-mobile.menu-arrows ul ul{
+.is-mobile-menu.menu-arrows ul ul{
 	position: relative;
 	left: 0;
 }
@@ -291,32 +291,32 @@
 	background: rgba( 255, 255, 255, 0.15);
 }
 
-.menu-mobile.menu-arrows ul li:first-child a{
+.is-mobile-menu.menu-arrows ul li:first-child a{
 	border-top: 1px solid rgba( 255, 255, 255, 0.1);
 }
-.menu-mobile.menu-arrows a{
+.is-mobile-menu.menu-arrows a{
 	border-bottom: 1px solid rgba( 255, 255, 255, 0.1);
 }
 
-.menu-mobile.menu-arrows .toggle-submenu{
+.is-mobile-menu.menu-arrows .toggle-submenu{
 	background: none;
 }
 
-.menu-mobile.menu-arrows .toggle-submenu:hover{
+.is-mobile-menu.menu-arrows .toggle-submenu:hover{
 	background: rgba( 255, 255, 255, 0.1);
 }
 
-.menu-mobile.menu-arrows ul,
-.menu-mobile.menu-arrows ul a{
+.is-mobile-menu.menu-arrows ul,
+.is-mobile-menu.menu-arrows ul a{
 	background: rgba( 255, 255, 255, 0.1);
 }
 
-.menu-mobile.menu-arrows ul ul,
-.menu-mobile.menu-arrows ul ul a{
+.is-mobile-menu.menu-arrows ul ul,
+.is-mobile-menu.menu-arrows ul ul a{
 	background: rgba( 255, 255, 255, 0.2);
 }
 
-.menu-mobile.menu-arrows .open-submenu > a .toggle-submenu{
+.is-mobile-menu.menu-arrows .open-submenu > a .toggle-submenu{
 	background: rgba( 255, 255, 255, 0.1 );
 }
 
