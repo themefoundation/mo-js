@@ -95,7 +95,7 @@
 
 			// Automatically insert a toggle button if one doesn't exist.
 			if ( menu.toggleButton.length < 1 ) {
-				menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button"><div></div></div>').find('#' + mo.toggleButtonID).hide();
+				menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#9776</div>').find('#' + mo.toggleButtonID).hide();
 			}
 
 			// Add listener to the menu toggle button.

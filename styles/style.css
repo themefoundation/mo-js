@@ -106,37 +106,11 @@ as described by Jonathan Snook at http://smacss.com
 /* Toggled Mobile Styles */
 
 .menu-toggle-button{
-	width: 3.25em;
-	height: 3em;
-	padding: 0.5em;
+	width: 1.5em;
 	cursor: pointer;
+	font-size: 2em;
+	text-align: center;
 }
-
-.menu-toggle-button div:before{
-	content: '';
-	border-top: 0.4em solid #999;
-	display: block;
-	width: 2.25em;
-	margin-top: 0.4em;
-	right: 0;
-}
-
-.menu-toggle-button div{
-	border-top: 0.4em solid #999;
-	display: block;
-	width: 2.25em;
-	float: right;
-}
-
-.menu-toggle-button div:after{
-	content: '';
-	border-top: 0.4em solid #999;
-	display: block;
-	width: 2.25em;
-	margin-top: 0.4em;
-}
-
-
 
 .is-mobile-menu.menu-arrows{
 	text-align: left;
