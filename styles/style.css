@@ -1,5 +1,14 @@
-/* =Base Styles
+/*
+
+mo.js uses the scalable and modular architecture for CSS
+as described by Jonathan Snook at http://smacss.com
+
+*/
+
+/* =Module Styles
 -------------------------------------------------------------- */
+
+/* Pill style links for mobile/tablet */
 
 .thmfdn-menu,
 .thmfdn-menu *{
@@ -10,40 +19,6 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
-.thmfdn-menu li{
-	position: relative;
-	white-space: nowrap;
-}
-
-.thmfdn-menu ul{
-	position: absolute;
-	display: none;
-	top: 100%;
-	left: 0;
-	z-index: 1000;
-}
-
-.thmfdn-menu.menu-hover li:hover > ul{
-	display: block;
-}
-
-.thmfdn-menu a{
-	position: relative;
-}
-
-.thmfdn-menu ul li{
-	display: block;
-}
-
-.thmfdn-menu ul ul{
-	top: 0;
-	left: 100%;
-}
-
-
-/* =Standard Mobile Styles
--------------------------------------------------------------- */
 
 .thmfdn-menu{
 	text-align: center;
@@ -58,13 +33,33 @@
 	margin: 0.25em 0;
 }
 
-.thmfdn-menu a{
-	padding: 0.75em 1em;
+.thmfdn-menu li{
+	position: relative;
+	white-space: nowrap;
 }
 
 .thmfdn-menu ul{
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
 	margin-top: 0.90em;
 	text-align: left;
+}
+
+.thmfdn-menu.menu-hover li:hover > ul{
+	display: block;
+}
+
+.thmfdn-menu a{
+	position: relative;
+	padding: 0.75em 1em;
+
+}
+
+.thmfdn-menu ul li{
+	display: block;
 }
 
 .thmfdn-menu ul a{
@@ -72,12 +67,43 @@
 }
 
 .thmfdn-menu ul ul{
+	top: 0;
+	left: 100%;
 	margin-top: 0em;
 }
 
 
-/* =Toggled Mobile Styles
+/* Horizontal drop downs for desktop */
+
+@media screen and (min-width : 900px) {
+
+	.thmfdn-menu:after{
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+
+	.thmfdn-menu > li {
+		display: block;
+		float: left;
+	}
+
+	.thmfdn-menu > li > a{
+		margin: 0;
+	}
+
+	.thmfdn-menu ul{
+		margin-top: 0;
+	}
+
+}
+
+/* =State Styles
 -------------------------------------------------------------- */
+
+/* Toggled Mobile Styles */
 
 .menu-toggle-button{
 	width: 3.25em;
@@ -139,33 +165,6 @@
 
 
 
-/* =Desktop Styles
--------------------------------------------------------------- */
-
-@media screen and (min-width : 900px) {
-
-	.thmfdn-menu:after{
-		visibility: hidden;
-		display: block;
-		content: "";
-		clear: both;
-		height: 0;
-	}
-
-	.thmfdn-menu > li {
-		display: block;
-		float: left;
-	}
-
-	.thmfdn-menu > li > a{
-		margin: 0;
-	}
-
-	.thmfdn-menu ul{
-		margin-top: 0;
-	}
-
-}
 
 
 
