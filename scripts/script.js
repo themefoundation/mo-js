@@ -8,9 +8,9 @@
 			hoverClass: 'menu-hover',
 			arrowClass: 'menu-arrows',
 			mobileClass: 'is-mobile-menu',
-			hideMobileClass: 'hide-mobile',
+			hideMobileClass: 'is-hidden',
 			hasSubmenuClass: 'has-submenu',
-			openSubmenuClass: 'open-submenu',
+			openSubmenuClass: 'is-open-submenu',
 			toggleSubmenuClass: 'toggle-submenu'
 		},
 

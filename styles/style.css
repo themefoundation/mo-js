@@ -1,9 +1,11 @@
 /*
 
-mo.js uses the scalable and modular architecture for CSS
-as described by Jonathan Snook at http://smacss.com
+The mo.js stylesheet is heavily influenced by the
+scalable and modular architecture for CSS as described
+by Jonathan Snook at http://smacss.com
 
 */
+
 
 /* =Module Styles
 -------------------------------------------------------------- */
@@ -72,7 +74,6 @@ as described by Jonathan Snook at http://smacss.com
 	margin-top: 0em;
 }
 
-
 /* Horizontal drop downs for desktop */
 
 @media screen and (min-width : 900px) {
@@ -133,15 +134,9 @@ as described by Jonathan Snook at http://smacss.com
 	left: 0;
 }
 
-.hide-mobile{
+.is-mobile-menu.is-hidden{
 	display: none;
 }
-
-
-
-
-
-
 
 /* =Arrow Styles
 -------------------------------------------------------------- */
@@ -199,11 +194,11 @@ as described by Jonathan Snook at http://smacss.com
 
 
 /* Javascript menu arrow styles */
-.menu-arrows .open-submenu > ul{
+.menu-arrows .is-open-submenu > ul{
 	display: block;
 }
 
-.menu-arrows .open-submenu > a .toggle-submenu:after {
+.menu-arrows .is-open-submenu > a .toggle-submenu:after {
 	margin-top: -8px;
 
 	border: 5px solid transparent;
@@ -211,7 +206,7 @@ as described by Jonathan Snook at http://smacss.com
 	border-bottom-color: rgba(255,255,255,.5);
 }
 
-.menu-arrows ul .open-submenu > a .toggle-submenu:after {
+.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
 	margin-top: -5px;
 	margin-right: 5px;
 
@@ -232,20 +227,13 @@ as described by Jonathan Snook at http://smacss.com
 }
 
 /* Javascript mobile menu arrow styles */
-.menu-arrows.is-mobile-menu.menu-arrows ul .open-submenu a .toggle-submenu:after {
+.menu-arrows.is-mobile-menu.menu-arrows ul .is-open-submenu a .toggle-submenu:after {
 	margin-top: -8px;
 
 	border: 5px solid transparent;
 	border-bottom-color: #fff; /* IE8 */
 	border-bottom-color: rgba(255,255,255,.5);
 }
-
-
-
-
-
-
-
 
 
 /* =Colors
@@ -288,7 +276,6 @@ as described by Jonathan Snook at http://smacss.com
 	background: rgba( 255, 255, 255, 0.2);
 }
 
-.is-mobile-menu.menu-arrows .open-submenu > a .toggle-submenu{
+.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu{
 	background: rgba( 255, 255, 255, 0.1 );
 }
-
