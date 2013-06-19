@@ -41,8 +41,9 @@
 				.children('a').append('<span class="' + mo.toggleSubmenuClass + '"></span>');
 
 			// Catch click events on submenu toggle handlers.
-			menu.el.on('click', '.' + mo.toggleSubmenuClass, function() {
+			menu.el.on('click', '.' + mo.toggleSubmenuClass, function( e ) {
 				if ( menu.el.hasClass( mo.mobileClass ) ) {
+					e.preventDefault();
 					menu.toggleSubmenu( this );
 				}
 			});
