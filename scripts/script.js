@@ -50,7 +50,7 @@
 
 			menu.el.on('hover', '.' + mo.hasSubmenuClass, function() {
 				var mo = menu.options,
-					parentmenu = $(this).closest('.' + mo.hasSubmenuClass),
+					parentmenu = $(this),
 					submenu = parentmenu.children('ul');
 			
 				if ( !menu.el.hasClass( mo.mobileClass ) ) {
