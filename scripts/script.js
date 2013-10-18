@@ -48,6 +48,20 @@
 				}
 			});
 
+			menu.el.on('hover', '.' + mo.hasSubmenuClass, function() {
+				var mo = menu.options,
+					parentmenu = $(this),
+					submenu = parentmenu.children('ul');
+			
+				if ( !menu.el.hasClass( mo.mobileClass ) ) {
+					var menupos = parentmenu.offset();					
+					var diff = menupos.left + submenu.outerWidth() - $(window).width();
+					if ( diff > 0 ) {
+						submenu.css({ left: -diff }); 
+					}
+				}
+			});
+
 			// Initialize the mobile menu.
 			menu.toggleMobile();
 
