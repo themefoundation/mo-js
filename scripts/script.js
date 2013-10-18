@@ -48,6 +48,7 @@
 				}
 			});
 
+			// Prevent rightmost submenus from leaving the viewport on :hover.
 			menu.el.on('hover', '.' + mo.hasSubmenuClass, function() {
 				var mo = menu.options,
 					parentmenu = $(this),
