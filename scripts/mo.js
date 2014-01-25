@@ -6,10 +6,10 @@
 			mobileBreakpoint: 600,
 			mobileMenuLocation: '',
 			toggleButtonID: 'menu-toggle-button',
-			hoverClass: 'menu-hover',
 			arrowClass: 'menu-arrows',
+			jsClass: 'is-js-menu',
 			mobileClass: 'is-mobile-menu',
-			hideMobileClass: 'is-hidden',
+			hideMobileClass: 'is-hidden-menu',
 			hasSubmenuClass: 'has-submenu',
 			openSubmenuClass: 'is-open-submenu',
 			toggleSubmenuClass: 'toggle-submenu'
@@ -27,7 +27,9 @@
 			// Check for device touch support.
 			if ( 'ontouchstart' in document.documentElement ) {
 				menu.isTouch = true;
-				menu.el.removeClass(mo.hoverClass);
+
+				// Adds the js class to the main menu element.
+				menu.el.addClass(mo.jsClass);
 			}
 
 			// Initialize the menu container.
@@ -43,10 +45,13 @@
 
 			// Catch click events on submenu toggle handlers.
 			menu.el.on('click', '.' + mo.toggleSubmenuClass, function( e ) {
-				if ( ! menu.el.hasClass( mo.mobileClass ) ) {
+
+				// Only continue if javascript menu class is in use.
+				if ( menu.el.hasClass( mo.jsClass ) ) {
 					e.preventDefault();
 					menu.toggleSubmenu( this );
 				}
+
 			});
 
 			// Prevent rightmost submenus from leaving the viewport on :hover.
@@ -144,8 +149,8 @@
 				// Show the menu toggle button.
 				this.toggleButton.show();
 
-				// Add the mobile class to the menu element.
-				this.el.addClass(mo.mobileClass).addClass(mo.hideMobileClass).removeClass(mo.hoverClass);
+				// Add the mobile, js, and hideMobile classes to the main menu element.
+				this.el.addClass(mo.mobileClass).addClass(mo.jsClass).addClass(mo.hideMobileClass)
 			}
 
 			// Check if viewport width is greater than the mobile breakpoint setting and the mobile menu is still displayed.
@@ -158,8 +163,12 @@
 
 				// Check for lack of touch support.
 				if ( ! this.isTouch ) {
-					// Add the hover class and remove any left over open submenu classes.
-					this.el.addClass(mo.hoverClass).find('.' + mo.openSubmenuClass).removeClass(mo.openSubmenuClass);
+
+					// Removes javascript menu class from main menu element
+					this.el.removeClass(mo.jsClass);
+
+					// Removes any left over open submenu classes.
+					this.el.find('.' + mo.openSubmenuClass).removeClass(mo.openSubmenuClass);
 				}
 			}
 		},
@@ -193,7 +202,7 @@
 
 jQuery(function($) {
 	$('.test-menu').thmfdnMenu({
-		hoverClass: 'menu-hover'
+		// hoverClass: 'menu-hover'
 	});
 
 	$('.test-menu2').thmfdnMenu({

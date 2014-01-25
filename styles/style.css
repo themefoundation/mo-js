@@ -12,8 +12,8 @@ by Jonathan Snook at http://smacss.com
 
 /* Pill style links for mobile/tablet */
 
-.thmfdn-menu,
-.thmfdn-menu *{
+.menu,
+.menu *{
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -22,25 +22,25 @@ by Jonathan Snook at http://smacss.com
 	box-sizing: border-box;
 }
 
-.thmfdn-menu{
+.menu{
 	text-align: center;
 }
 
-.thmfdn-menu > li{
+.menu > li{
 	display: inline;
 }
 
-.thmfdn-menu > li > a{
+.menu > li > a{
 	display: inline-block;
 	margin: 0.25em 0;
 }
 
-.thmfdn-menu li{
+.menu li{
 	position: relative;
 	white-space: nowrap;
 }
 
-.thmfdn-menu ul{
+.menu ul{
 	position: absolute;
 	display: none;
 	top: 100%;
@@ -50,25 +50,29 @@ by Jonathan Snook at http://smacss.com
 	text-align: left;
 }
 
-.thmfdn-menu.menu-hover li:hover > ul{
+/*.menu.menu-hover li:hover > ul{
+	display: block;
+}*/
+
+.menu li:hover > ul{
 	display: block;
 }
 
-.thmfdn-menu a{
+.menu a{
 	position: relative;
 	padding: 0.75em 1em;
 
 }
 
-.thmfdn-menu ul li{
+.menu ul li{
 	display: block;
 }
 
-.thmfdn-menu ul a{
+.menu ul a{
 	display: block;
 }
 
-.thmfdn-menu ul ul{
+.menu ul ul{
 	top: 0;
 	left: 100%;
 	margin-top: 0em;
@@ -78,7 +82,7 @@ by Jonathan Snook at http://smacss.com
 
 @media screen and (min-width : 900px) {
 
-	.thmfdn-menu:after{
+	.menu:after{
 		visibility: hidden;
 		display: block;
 		content: "";
@@ -86,16 +90,16 @@ by Jonathan Snook at http://smacss.com
 		height: 0;
 	}
 
-	.thmfdn-menu > li {
+	.menu > li {
 		display: block;
 		float: left;
 	}
 
-	.thmfdn-menu > li > a{
+	.menu > li > a{
 		margin: 0;
 	}
 
-	.thmfdn-menu ul{
+	.menu ul{
 		margin-top: 0;
 	}
 
@@ -111,6 +115,15 @@ by Jonathan Snook at http://smacss.com
 	cursor: pointer;
 	font-size: 2em;
 	text-align: center;
+}
+
+.is-js-menu li:hover > ul{
+	display: none;
+}
+
+.is-js-menu li.is-open-submenu > ul,
+.is-js-menu li.is-open-submenu:hover > ul{
+	display: block;
 }
 
 .is-mobile-menu.menu-arrows{
@@ -134,7 +147,7 @@ by Jonathan Snook at http://smacss.com
 	left: 0;
 }
 
-.is-mobile-menu.is-hidden{
+.is-mobile-menu.is-hidden-menu{
 	display: none;
 }
 
@@ -180,18 +193,29 @@ by Jonathan Snook at http://smacss.com
 
 
 /* CSS hover menu arrow styles */
-.menu-arrows.menu-hover .has-submenu > a{
+/*.menu-arrows.menu-hover .has-submenu > a{
+	padding-right: 2em;
+}*/
+
+.menu-arrows .has-submenu > a{
 	padding-right: 2em;
 }
 
-.menu-arrows.menu-hover .toggle-submenu{
+/*.menu-arrows.menu-hover .toggle-submenu{
+	width: 1.5em;
+}*/
+
+.menu-arrows .toggle-submenu{
 	width: 1.5em;
 }
 
-.menu-arrows.menu-hover .toggle-submenu:after {
+/*.menu-arrows.menu-hover .toggle-submenu:after {
+	right: .5em;
+}*/
+
+.menu-arrows .toggle-submenu:after {
 	right: .5em;
 }
-
 
 /* Javascript menu arrow styles */
 .menu-arrows .is-open-submenu > ul{
@@ -239,15 +263,15 @@ by Jonathan Snook at http://smacss.com
 /* =Colors
 -------------------------------------------------------------- */
 
-.thmfdn-menu,
-.thmfdn-menu a,
-.thmfdn-menu li,
-.thmfdn-menu ul{
+.menu,
+.menu a,
+.menu li,
+.menu ul{
 	background: #444;
 	color: #eee;
 }
 
-.thmfdn-menu a:hover{
+.menu a:hover{
 	background: rgba( 255, 255, 255, 0.15);
 }
 
