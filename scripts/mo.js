@@ -4,6 +4,7 @@
 	var Menu = {
 		options: {
 			mobileBreakpoint: 600,
+			mobileMenuLocation: '',
 			toggleButtonID: 'menu-toggle-button',
 			hoverClass: 'menu-hover',
 			arrowClass: 'menu-arrows',
@@ -87,7 +88,7 @@
 		 * button if one doesn't already exist.
 		 */
 		initContainer: function() {
-			// Select the toggle button.
+			// Select the container.
 			this.container = this.el.closest('.thmfdn-menu-container');
 
 			// Automatically add a container div if one doesn't exist.
@@ -111,7 +112,14 @@
 
 			// Automatically insert a toggle button if one doesn't exist.
 			if ( menu.toggleButton.length < 1 ) {
-				menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();
+				if ( '' == mo.mobileMenuLocation ) {
+					menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();
+				} else {
+					if ( ! $(mo.mobileMenuLocation).hasClass( 'has-mobileMenu' ) ) {
+						menu.toggleButton = $(mo.mobileMenuLocation).prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();					
+						$(mo.mobileMenuLocation).addClass( 'has-mobileMenu' )
+					}
+				}
 			}
 
 			// Add listener to the menu toggle button.
