@@ -197,7 +197,7 @@ by Jonathan Snook at http://smacss.com
 
 /* Javascript menu arrow styles */
 
-.is-js-menu .toggle-submenu{
+.is-js-menu.menu-arrows .toggle-submenu{
 	width: 2.5em;
 }
 
