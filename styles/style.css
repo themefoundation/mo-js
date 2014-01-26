@@ -201,7 +201,7 @@ by Jonathan Snook at http://smacss.com
 	width: 2.5em;
 }
 
-.menu-arrows .has-submenu > a{
+.is-js-menu.menu-arrows .has-submenu > a{
 	padding-right: 2.5em;
 }
 
