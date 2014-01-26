@@ -42,20 +42,6 @@ by Jonathan Snook at http://smacss.com
 	white-space: nowrap;
 }
 
-.menu ul{
-	position: absolute;
-	display: none;
-	/*top: 100%;*/
-	left: 0;
-	z-index: 1000;
-	/*margin-top: 0.90em;*/
-	text-align: left;
-}
-
-/*.menu.menu-hover li:hover > ul{
-	display: block;
-}*/
-
 .menu li:hover > ul{
 	display: block;
 }
@@ -66,18 +52,24 @@ by Jonathan Snook at http://smacss.com
 
 }
 
-.menu ul li{
-	display: block;
+.menu ul{
+	position: absolute;
+	display: none;
+	/*top: 100%;*/
+	left: 0;
+	z-index: 1000;
+	/*margin-top: 0.90em;*/
+	text-align: left;
 }
 
-.menu ul a{
+.menu ul li,
+.menu ul li a{
 	display: block;
 }
 
 .menu ul ul{
 	top: 0;
 	left: 100%;
-	margin-top: 0em;
 }
 
 /* Horizontal drop downs for desktop */
@@ -212,7 +204,6 @@ by Jonathan Snook at http://smacss.com
 .is-js-menu.menu-arrows ul .toggle-submenu:after {
 	right: 1.1em;
 }
-
 
 .menu-arrows .is-open-submenu > ul{
 	display: block;
