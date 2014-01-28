@@ -6,7 +6,7 @@ by Jonathan Snook at http://smacss.com
 
 */
 
-.menu a{
+.site-header .menu a{
 	line-height: 2.5em;
 }
 
@@ -15,8 +15,8 @@ by Jonathan Snook at http://smacss.com
 
 /* Pill style links for mobile/tablet */
 
-.menu,
-.menu *{
+.site-header .menu,
+.site-header .menu *{
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -25,34 +25,34 @@ by Jonathan Snook at http://smacss.com
 	box-sizing: border-box;
 }
 
-.menu{
+.site-header .menu{
 	text-align: center;
 }
 
-.menu > li{
+.site-header .menu > li{
 	display: inline;
 }
 
-.menu > li > a{
+.site-header .menu > li > a{
 	display: inline-block;
 }
 
-.menu li{
+.site-header .menu li{
 	position: relative;
 	white-space: nowrap;
 }
 
-.menu li:hover > ul{
+.site-header .menu li:hover > ul{
 	display: block;
 }
 
-.menu a{
+.site-header .menu a{
 	position: relative;
 	padding: 0 0.5em;
 
 }
 
-.menu ul{
+.site-header .menu ul{
 	position: absolute;
 	display: none;
 	/*top: 100%;*/
@@ -62,21 +62,21 @@ by Jonathan Snook at http://smacss.com
 	text-align: left;
 }
 
-.menu ul li,
-.menu ul li a{
+.site-header .menu ul li,
+.site-header .menu ul li a{
 	display: block;
 }
 
-.menu ul ul{
+.site-header .menu ul ul{
 	top: 0;
 	left: 100%;
 }
 
 /* Horizontal drop downs for desktop */
 
-@media screen and (min-width : 900px) {
+@media screen and (min-width : 1140px) {
 
-	.menu:after{
+	.site-header .menu:after{
 		visibility: hidden;
 		display: block;
 		content: "";
@@ -84,16 +84,16 @@ by Jonathan Snook at http://smacss.com
 		height: 0;
 	}
 
-	.menu > li {
+	.site-header .menu > li {
 		display: block;
 		float: left;
 	}
 
-	.menu > li > a{
+	.site-header .menu > li > a{
 		margin: 0;
 	}
 
-	.menu ul{
+	.site-header .menu ul{
 		margin-top: 0;
 	}
 
@@ -111,48 +111,48 @@ by Jonathan Snook at http://smacss.com
 	text-align: center;
 }
 
-.is-js-menu li:hover > ul{
+.menu.is-js-menu li:hover > ul{
 	display: none;
 }
 
-.is-js-menu li.is-open-submenu > ul,
-.is-js-menu li.is-open-submenu:hover > ul{
+.menu.is-js-menu li.is-open-submenu > ul,
+.menu.is-js-menu li.is-open-submenu:hover > ul{
 	display: block;
 }
 
-.is-mobile-menu.menu-arrows{
+.menu.is-mobile-menu.menu-arrows{
 	text-align: left;
 }
 
-.is-mobile-menu.menu-arrows > li > a{
+.menu.is-mobile-menu.menu-arrows > li > a{
 	display: block;
 	margin: 0;
 }
 
-.is-mobile-menu.menu-arrows ul{
+.menu.is-mobile-menu.menu-arrows ul{
 	position: relative;
 	top: auto;
 	margin-top: 0;
 	padding: 0.75em;
 }
 
-.is-mobile-menu.menu-arrows ul ul{
+.menu.is-mobile-menu.menu-arrows ul ul{
 	position: relative;
 	left: 0;
 }
 
-.is-mobile-menu.is-hidden-menu{
+.menu.is-mobile-menu.is-hidden-menu{
 	display: none;
 }
 
 /* =Arrow Styles
 -------------------------------------------------------------- */
 
-.menu-arrows .has-submenu > a{
+.menu.menu-arrows .has-submenu > a{
 	padding-right: 3.5em;
 }
 
-.menu-arrows .toggle-submenu{
+.menu.menu-arrows .toggle-submenu{
 	width: 1.5em;
 	display: inline-block;
 	position: absolute;
@@ -162,7 +162,7 @@ by Jonathan Snook at http://smacss.com
 }
 
 /* Standard arrow styles */
-.menu-arrows .toggle-submenu:after {
+.menu.menu-arrows .toggle-submenu:after {
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -175,7 +175,7 @@ by Jonathan Snook at http://smacss.com
 	border-top-color: #000;
 }
 
-.menu-arrows ul .toggle-submenu:after {
+.menu.menu-arrows ul .toggle-submenu:after {
 	margin-top: -5px;
 	margin-right: -3px;
 
@@ -183,40 +183,40 @@ by Jonathan Snook at http://smacss.com
 	border-left-color: #000;
 }
 
-.menu-arrows .has-submenu > a{
+.menu.menu-arrows .has-submenu > a{
 	padding-right: 2em;
 }
 
 /* Javascript menu arrow styles */
 
-.is-js-menu.menu-arrows .toggle-submenu{
+.menu.is-js-menu.menu-arrows .toggle-submenu{
 	width: 2.5em;
 }
 
-.is-js-menu.menu-arrows .has-submenu > a{
+.menu.is-js-menu.menu-arrows .has-submenu > a{
 	padding-right: 2.5em;
 }
 
-.is-js-menu.menu-arrows .toggle-submenu:after {
+.menu.is-js-menu.menu-arrows .toggle-submenu:after {
 	right: 0.8em;
 }
 
-.is-js-menu.menu-arrows ul .toggle-submenu:after {
+.menu.is-js-menu.menu-arrows ul .toggle-submenu:after {
 	right: 1.1em;
 }
 
-.menu-arrows .is-open-submenu > ul{
+.menu.menu-arrows .is-open-submenu > ul{
 	display: block;
 }
 
-.menu-arrows .is-open-submenu > a .toggle-submenu:after {
+.menu.menu-arrows .is-open-submenu > a .toggle-submenu:after {
 	margin-top: -8px;
 
 	border-color: transparent;
 	border-bottom-color: #000;
 }
 
-.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
+.menu.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
 	margin-top: -5px;
 	margin-right: 3px;
 
@@ -226,7 +226,7 @@ by Jonathan Snook at http://smacss.com
 
 
 /* Javascript mobile menu arrow styles */
-.menu-arrows.is-mobile-menu.menu-arrows ul a .toggle-submenu:after {
+.menu.menu-arrows.is-mobile-menu.menu-arrows ul a .toggle-submenu:after {
 	margin-top: -3px;
 	margin-right: -3px;
 
@@ -235,7 +235,7 @@ by Jonathan Snook at http://smacss.com
 }
 
 /* Javascript mobile menu arrow styles */
-.menu-arrows.is-mobile-menu.menu-arrows ul .is-open-submenu a .toggle-submenu:after {
+.menu.menu-arrows.is-mobile-menu.menu-arrows ul .is-open-submenu a .toggle-submenu:after {
 	margin-top: -8px;
 
 	border-color: transparent;
@@ -246,40 +246,40 @@ by Jonathan Snook at http://smacss.com
 /* =Colors
 -------------------------------------------------------------- */
 
-.menu,
-.menu a,
-.menu li,
-.menu ul{
+.site-header .menu,
+.site-header .menu a,
+.site-header .menu li,
+.site-header .menu ul{
 	background: #666;
 	color: #fff;
 }
 
-.menu a:hover{
+.site-header .menu a:hover{
 	background: rgba( 255, 255, 255, 0.2);
 }
 
-.is-mobile-menu.menu-arrows .toggle-submenu:hover{
+.menu.is-mobile-menu.menu-arrows .toggle-submenu:hover{
 	background: rgba( 255, 255, 255, 0.2);
 }
 
-.is-mobile-menu.menu-arrows ul,
-.is-mobile-menu.menu-arrows ul a{
+.menu.is-mobile-menu.menu-arrows ul,
+.menu.is-mobile-menu.menu-arrows ul a{
 	background: rgba( 255, 255, 255, 0.1);
 }
 
-.is-mobile-menu.menu-arrows ul a:hover{
+.menu.is-mobile-menu.menu-arrows ul a:hover{
 	background: rgba( 255, 255, 255, 0.2);
 }
 
-.is-mobile-menu.menu-arrows ul ul a:hover{
+.menu.is-mobile-menu.menu-arrows ul ul a:hover{
 	background: rgba( 255, 255, 255, 0.3);
 }
 
-.is-mobile-menu.menu-arrows ul ul,
-.is-mobile-menu.menu-arrows ul ul a{
+.menu.is-mobile-menu.menu-arrows ul ul,
+.menu.is-mobile-menu.menu-arrows ul ul a{
 	background: rgba( 255, 255, 255, 0.2);
 }
 
-.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu{
+.menu.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu{
 	background: rgba( 255, 255, 255, 0.1 );
 }
