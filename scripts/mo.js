@@ -118,12 +118,12 @@
 
 			// Automatically insert a toggle button if one doesn't exist.
 			if ( menu.toggleButton.length < 1 ) {
-				if ( '' == mo.mobileMenuLocation ) {
+				if ( '' === mo.mobileMenuLocation ) {
 					menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();
 				} else {
 					if ( ! $(mo.mobileMenuLocation).hasClass( 'has-mobileMenu' ) ) {
 						menu.toggleButton = $(mo.mobileMenuLocation).prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();					
-						$(mo.mobileMenuLocation).addClass( 'has-mobileMenu' )
+						$(mo.mobileMenuLocation).addClass( 'has-mobileMenu' );
 					}
 				}
 			}
@@ -143,11 +143,12 @@
 		 */
 		toggleMobile: function() {
 			var mo = this.options;
+			var width = '';
 
 			if ( 'screen' == mo.breakpointType ) {
-				var width = viewportSize.getWidth();
+				width = viewportSize.getWidth();
 			} else {
-				var width = this.container.outerWidth();
+				width = this.container.outerWidth();
 			}
 
 			// Check if viewport width is less than the mobile breakpoint setting and the mobile menu is not displayed yet.
@@ -156,7 +157,7 @@
 				this.toggleButton.show();
 
 				// Add the mobile, js, and hideMobile classes to the main menu element.
-				this.el.addClass(mo.mobileClass).addClass(mo.jsClass).addClass(mo.hideMobileClass)
+				this.el.addClass(mo.mobileClass).addClass(mo.jsClass).addClass(mo.hideMobileClass);
 			}
 
 			// Check if viewport width is greater than the mobile breakpoint setting and the mobile menu is still displayed.
