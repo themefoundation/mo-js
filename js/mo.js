@@ -207,21 +207,6 @@
 	};
 })( jQuery, window );
 
-jQuery(function($) {
-	$('.test-menu').thmfdnMenu({
-		// hoverClass: 'menu-hover'
-	});
-
-	$('.test-menu2').thmfdnMenu({
-		toggleButtonID: 'menu-toggle-button2'
-	});
-});
-
-
-
-
-
-
 /*! viewportSize | Author: Tyson Matanich, 2013 | License: MIT */
 (function (window) {
 
