@@ -1,9 +1,10 @@
 jQuery(function($) {
-	$('.test-menu').thmfdnMenu({
-		// hoverClass: 'menu-hover'
+	$('.test-menu, .test-menu2').thmfdnMenu({
+		mobileMenuLocation: '.site-header'
 	});
 
-	$('.test-menu2').thmfdnMenu({
-		toggleButtonID: 'menu-toggle-button2'
-	});
+	// $('.test-menu2').thmfdnMenu({
+	// 	toggleButtonID: 'menu-toggle-button2',
+	// 	// mobileMenuLocation: '.site-header'
+	// });
 });

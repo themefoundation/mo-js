@@ -6,6 +6,7 @@ by Jonathan Snook at http://smacss.com
 
 */
 
+
 .site-header .menu a{
 	line-height: 2.5em;
 }
@@ -109,6 +110,7 @@ by Jonathan Snook at http://smacss.com
 	cursor: pointer;
 	font-size: 2em;
 	text-align: center;
+	display: block;
 }
 
 .menu.is-js-menu li:hover > ul{

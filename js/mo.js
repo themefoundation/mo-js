@@ -1,11 +1,13 @@
 ;(function( $, window, undefined ) {
 	'use strict';
 
+	var mojsMenuId = 0;
 	var Menu = {
 		options: {
 			mobileBreakpoint: 900,
 			breakpointType: 'screen', // 'screen' or 'element'
 			mobileMenuLocation: '',
+			toggleContainerID: 'menu-toggle-container',
 			toggleButtonID: 'menu-toggle-button',
 			arrowClass: 'menu-arrows',
 			jsClass: 'is-js-menu',
@@ -119,10 +121,10 @@
 			// Automatically insert a toggle button if one doesn't exist.
 			if ( menu.toggleButton.length < 1 ) {
 				if ( '' === mo.mobileMenuLocation ) {
-					menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();
+					menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleContainerID + '"><span id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</span></div>').find('#' + mo.toggleButtonID).hide();
 				} else {
 					if ( ! $(mo.mobileMenuLocation).hasClass( 'has-mobileMenu' ) ) {
-						menu.toggleButton = $(mo.mobileMenuLocation).prepend('<div id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</div>').find('#' + mo.toggleButtonID).hide();					
+						menu.toggleButton = $(mo.mobileMenuLocation).prepend('<div id="' + mo.toggleContainerID + '"><span id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</span></div>').find('#' + mo.toggleButtonID).hide();					
 						$(mo.mobileMenuLocation).addClass( 'has-mobileMenu' );
 					}
 				}
@@ -135,11 +137,10 @@
 		},
 
 		/**
-		 * Toggle the menu's mobile state depending on the width of its container.
+		 * Toggle the menu's mobile state.
 		 *
-		 * Rather than basing the breakpoint on the width of the viewport, the
-		 * width of the menu's container is used to determine when exactly the
-		 * menu should change state.
+		 * Mobile state can be toggled either based on the width of the viewport
+		 * or the width of the menu's container element.
 		 */
 		toggleMobile: function() {
 			var mo = this.options;
@@ -151,6 +152,7 @@
 				width = this.container.outerWidth();
 			}
 
+
 			// Check if viewport width is less than the mobile breakpoint setting and the mobile menu is not displayed yet.
 			if ( width < mo.mobileBreakpoint && !this.el.hasClass(mo.mobileClass) ) {
 				// Show the menu toggle button.
@@ -158,12 +160,36 @@
 
 				// Add the mobile, js, and hideMobile classes to the main menu element.
 				this.el.addClass(mo.mobileClass).addClass(mo.jsClass).addClass(mo.hideMobileClass);
+
+				// Moves the menus to the specified location.
+				if ( '' !== mo.mobileMenuLocation ) {
+
+					if(!this.el.parent().hasClass('mojs-placeholder')) {
+						this.el.addClass('mojs-' + mojsMenuId).parent().addClass('mojs-' + mojsMenuId + '-placeholder mojs-placeholder');
+						mojsMenuId++;
+					}
+
+					$('#' + mo.toggleContainerID).append(this.el);
+
+				}
+
 			}
 
 			// Check if viewport width is greater than the mobile breakpoint setting and the mobile menu is still displayed.
 			if ( width >= mo.mobileBreakpoint && this.el.hasClass(mo.mobileClass) ) {
 				// Hides mobile menu toggle button
 				this.toggleButton.hide();
+
+				// Moves the menus back to the original location.
+				if ( '' !== mo.mobileMenuLocation ) {
+
+					for (var i=mojsMenuId;i>=0;i--) {
+						if(this.el.hasClass('mojs-' + i)) {
+							this.el.appendTo('.mojs-' + i + '-placeholder');
+						}
+					}
+
+				}
 
 				// Remove hide mobile class to ensure menu is never hidden in desktop view.
 				this.el.removeClass(mo.hideMobileClass).removeClass(mo.mobileClass);
