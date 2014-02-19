@@ -215,8 +215,13 @@
 			var mo = this.options,
 				submenu = $(menuItem).closest('.' + mo.hasSubmenuClass);
 
-			// Toggle the submenu open class and remove from any other submenus at the same level.
-			submenu.toggleClass(mo.openSubmenuClass).parent().find('.' + mo.openSubmenuClass).not(submenu).removeClass(mo.openSubmenuClass);
+			// Toggle the submenu open class.
+			submenu.toggleClass(mo.openSubmenuClass);
+
+			// Remove submenu open class from other open submenus.
+			if ( !menu.el.hasClass( mo.mobileClass ) ) {
+				submenu.parent().find('.' + mo.openSubmenuClass).not(submenu).removeClass(mo.openSubmenuClass);
+			}
 		}
 	};
 
