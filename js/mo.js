@@ -219,7 +219,7 @@
 			submenu.toggleClass(mo.openSubmenuClass);
 
 			// Remove submenu open class from other open submenus.
-			if ( !menu.el.hasClass( mo.mobileClass ) ) {
+			if ( !this.el.hasClass( mo.mobileClass ) ) {
 				submenu.parent().find('.' + mo.openSubmenuClass).not(submenu).removeClass(mo.openSubmenuClass);
 			}
 		}
