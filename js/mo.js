@@ -8,7 +8,7 @@
 			breakpointType: 'screen', // 'screen' or 'element'
 			mobileMenuLocation: '',
 			toggleContainerID: 'menu-toggle-container',
-			toggleButtonID: 'menu-toggle-button',
+			toggleButtonID: '',
 			arrowClass: 'menu-arrows',
 			jsClass: 'is-js-menu',
 			mobileClass: 'is-mobile-menu',
@@ -118,23 +118,26 @@
 			var menu = this,
 				mo = menu.options;
 
-			// Select the toggle button.
-			menu.toggleButton = $('.mojs-toggle-' + mojsMenuId);
+			if ( $('#' + mo.toggleButtonID).length > 0 ) {
+				menu.toggleButton = $('#' + mo.toggleButtonID);
+				menu.toggleButton.addClass('mojs-toggle-' + mojsMenuId);
+			} else {
+				// Select the toggle button for current menu.
+				menu.toggleButton = $('.mojs-toggle-' + mojsMenuId);
 
-			// Automatically insert a toggle button if previously selected button doesn't exist.
-			if ( menu.toggleButton.length < 1 ) {
-				if ( '' === mo.mobileMenuLocation ) {
-					$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(menu.container);
-					menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
-				} else {
-					if ( ! $(mo.mobileMenuLocation).hasClass( 'has-mojsToggleButton' ) ) {
-						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(mo.mobileMenuLocation);
-						menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
-						$(mo.mobileMenuLocation).addClass( 'has-mojsToggleButton' );
+				// Automatically insert a toggle button if previously selected button doesn't exist.
+				if ( menu.toggleButton.length < 1 ) {
+					if ( '' === mo.mobileMenuLocation ) {
+						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(menu.container);
+
 					} else {
-						menu.toggleButton = $(mo.mobileMenuLocation).find('.menu-toggle-button');
+						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(mo.mobileMenuLocation);
 					}
-				}
+					menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
+					if ( mo.toggleButtonID ) {
+						menu.toggleButton.attr('id', mo.toggleButtonID);						
+					}
+				}	
 			}
 
 			// Add listener to the menu toggle button.
