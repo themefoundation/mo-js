@@ -19,12 +19,15 @@
 		},
 
 		init: function( el, options ) {
+			mojsMenuId++;
 			var menu = this,
 				doCallback = true, // Window resize throttle flag.
 				mo;
 
-			menu.el = $(el);
+			menu.number = mojsMenuId;
+			menu.el = $(el).addClass('mojs-' + menu.number);
 			menu.isTouch = false;
+
 			mo = menu.options = $.extend( {}, menu.options, options );
 
 			// Check for device touch support.
@@ -41,7 +44,7 @@
 			// Initialize the toggle button.
 			menu.initToggleButton();
 
-			// Initialize the arrows.
+			// Initialize the submenu arrows.
 			menu.el.addClass(mo.arrowClass)
 				.find('ul').parent().addClass(mo.hasSubmenuClass)
 				.children('a').append('<span class="' + mo.toggleSubmenuClass + '"></span>');
@@ -116,16 +119,20 @@
 				mo = menu.options;
 
 			// Select the toggle button.
-			menu.toggleButton = $('#' + mo.toggleButtonID );
+			menu.toggleButton = $('.mojs-toggle-' + mojsMenuId);
 
-			// Automatically insert a toggle button if one doesn't exist.
+			// Automatically insert a toggle button if previously selected button doesn't exist.
 			if ( menu.toggleButton.length < 1 ) {
 				if ( '' === mo.mobileMenuLocation ) {
-					menu.toggleButton = menu.container.prepend('<div id="' + mo.toggleContainerID + '"><span id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</span></div>').find('#' + mo.toggleButtonID).hide();
+					$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(menu.container);
+					menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
 				} else {
-					if ( ! $(mo.mobileMenuLocation).hasClass( 'has-mobileMenu' ) ) {
-						menu.toggleButton = $(mo.mobileMenuLocation).prepend('<div id="' + mo.toggleContainerID + '"><span id="' + mo.toggleButtonID + '" class="menu-toggle-button">&#8801</span></div>').find('#' + mo.toggleButtonID).hide();					
-						$(mo.mobileMenuLocation).addClass( 'has-mobileMenu' );
+					if ( ! $(mo.mobileMenuLocation).hasClass( 'has-mojsToggleButton' ) ) {
+						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(mo.mobileMenuLocation);
+						menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
+						$(mo.mobileMenuLocation).addClass( 'has-mojsToggleButton' );
+					} else {
+						menu.toggleButton = $(mo.mobileMenuLocation).find('.menu-toggle-button');
 					}
 				}
 			}
@@ -164,12 +171,17 @@
 				// Moves the menus to the specified location.
 				if ( '' !== mo.mobileMenuLocation ) {
 
-					if(!this.el.parent().hasClass('mojs-placeholder')) {
-						this.el.addClass('mojs-' + mojsMenuId).parent().addClass('mojs-' + mojsMenuId + '-placeholder mojs-placeholder');
-						mojsMenuId++;
+					if ( !this.el.parent().hasClass('mojs-placeholder') ) {
+						for (var i=mojsMenuId;i>0;i--) {
+							if(this.el.hasClass('mojs-' + i)) {
+								this.el.parent().addClass('mojs-' + i + '-placeholder mojs-placeholder');
+							}
+						}
+						// mojsMenuId++;
+						// alert(mojsMenuId);
 					}
 
-					$('#' + mo.toggleContainerID).append(this.el);
+					$(this.toggleButton).parent().append(this.el);
 
 				}
 
