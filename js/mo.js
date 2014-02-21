@@ -9,6 +9,7 @@
 			mobileMenuLocation: '',
 			toggleContainerID: 'menu-toggle-container',
 			toggleButtonID: '',
+			toggleButtonContent: '&#8801',
 			arrowClass: 'menu-arrows',
 			jsClass: 'is-js-menu',
 			mobileClass: 'is-mobile-menu',
@@ -128,10 +129,9 @@
 				// Automatically insert a toggle button if previously selected button doesn't exist.
 				if ( menu.toggleButton.length < 1 ) {
 					if ( '' === mo.mobileMenuLocation ) {
-						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(menu.container);
-
+						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">' + mo.toggleButtonContent + '</span></div>').prependTo(menu.container);
 					} else {
-						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">&#8801</span></div>').prependTo(mo.mobileMenuLocation);
+						$('<div><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">' + mo.toggleButtonContent + '</span></div>').prependTo(mo.mobileMenuLocation);
 					}
 					menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
 					if ( mo.toggleButtonID ) {
@@ -162,7 +162,6 @@
 				width = this.container.outerWidth();
 			}
 
-
 			// Check if viewport width is less than the mobile breakpoint setting and the mobile menu is not displayed yet.
 			if ( width < mo.mobileBreakpoint && !this.el.hasClass(mo.mobileClass) ) {
 				// Show the menu toggle button.
@@ -180,12 +179,8 @@
 								this.el.parent().addClass('mojs-' + i + '-placeholder mojs-placeholder');
 							}
 						}
-						// mojsMenuId++;
-						// alert(mojsMenuId);
 					}
-
 					$(this.toggleButton).parent().append(this.el);
-
 				}
 
 			}
@@ -197,13 +192,11 @@
 
 				// Moves the menus back to the original location.
 				if ( '' !== mo.mobileMenuLocation ) {
-
 					for (var i=mojsMenuId;i>=0;i--) {
 						if(this.el.hasClass('mojs-' + i)) {
 							this.el.appendTo('.mojs-' + i + '-placeholder');
 						}
 					}
-
 				}
 
 				// Remove hide mobile class to ensure menu is never hidden in desktop view.
