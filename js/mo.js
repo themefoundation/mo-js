@@ -76,6 +76,13 @@
 				}
 			});
 
+			menu.el.find('> li > a').focus(function(){
+				var mo = menu.options;
+				$('.thmfdn-menu-container').find('.'+mo.hasSubmenuClass ).removeClass( mo.openSubmenuClass );
+				$(this).parents('.'+mo.hasSubmenuClass ).addClass( mo.openSubmenuClass );
+			});
+
+
 			// Initialize the mobile menu.
 			menu.toggleMobile();
 
