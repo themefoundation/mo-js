@@ -76,10 +76,9 @@
 				}
 			});
 
-			menu.el.find('li > a').focus(function(){
+			menu.el.find('li > a').on( 'focus blur', function(){
 				var mo = menu.options;
-				$('.thmfdn-menu-container').find('.'+mo.hasSubmenuClass ).removeClass( mo.openSubmenuClass );
-				$(this).parents('.'+mo.hasSubmenuClass ).addClass( mo.openSubmenuClass );
+				$(this).parents( '.'+mo.hasSubmenuClass ).toggleClass( mo.openSubmenuClass );
 			});
 
 
