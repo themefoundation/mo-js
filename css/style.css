@@ -256,7 +256,8 @@ by Jonathan Snook at http://smacss.com
 	color: #fff;
 }
 
-.site-header .menu a:hover{
+.site-header .menu a:hover,
+.site-header .menu a:focus{
 	background: rgba( 255, 255, 255, 0.2);
 }
 

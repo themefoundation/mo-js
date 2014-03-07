@@ -76,9 +76,30 @@
 				}
 			});
 
-			menu.el.find('li > a').on( 'focus blur', function(){
+			// Expand submenus on focus
+			menu.el.find('li > a').focus(function(){
 				var mo = menu.options;
-				$(this).parents( '.'+mo.hasSubmenuClass ).toggleClass( mo.openSubmenuClass );
+				var parentMenu = $(this).parents('.'+mo.hasSubmenuClass );
+
+				// Remove previously opened submenus
+				$('.thmfdn-menu-container').find('.'+mo.hasSubmenuClass ).not(parentMenu).removeClass( mo.openSubmenuClass );
+
+				// Open focused submenu
+				if(!parentMenu.hasClass(mo.openSubmenuClass)){
+					parentMenu.addClass( mo.openSubmenuClass );
+
+					// Close focused submenu when click occurs outside submenu
+					$(document).click(function(event) {
+						if( $(event.target).parents('.'+mo.openSubmenuClass).length === 0 ) {
+							$('.'+mo.openSubmenuClass).removeClass(mo.openSubmenuClass);
+						}
+					});
+
+					// Close focused submenu when hover submenu opens
+					$('.'+mo.hasSubmenuClass+' a' ).mouseenter(function(){
+						$('.'+mo.openSubmenuClass).removeClass(mo.openSubmenuClass);
+					});	
+				}
 			});
 
 
