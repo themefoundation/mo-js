@@ -51,7 +51,7 @@
 				.children('a').append('<span class="' + mo.toggleSubmenuClass + '"></span>');
 
 			// Catch click events on submenu toggle handlers.
-			menu.el.on('click', '.' + mo.toggleSubmenuClass, function( e ) {
+			menu.el.on('mousedown', '.' + mo.toggleSubmenuClass, function( e ) {
 
 				// Only continue if javascript menu class is in use.
 				if ( menu.el.hasClass( mo.jsClass ) ) {
