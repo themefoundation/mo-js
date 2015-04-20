@@ -50,7 +50,7 @@
 				.find('ul').parent().addClass(mo.hasSubmenuClass)
 				.children('a').append('<span class="' + mo.toggleSubmenuClass + '"></span>');
 
-			// Catch click events on submenu toggle handlers.
+			// Catch mousedown events on submenu toggle handlers.
 			menu.el.on('mousedown', '.' + mo.toggleSubmenuClass, function( e ) {
 
 				// Only continue if javascript menu class is in use.
@@ -59,6 +59,11 @@
 					menu.toggleSubmenu( this );
 				}
 
+			});
+
+			// When the toggle button is clicked, prevent the parent link from being clicked.
+			menu.el.on('click', '.' + mo.toggleSubmenuClass, function( e ) {
+				e.preventDefault();
 			});
 
 			// Prevent rightmost submenus from leaving the viewport on :hover.
