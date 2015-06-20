@@ -250,39 +250,77 @@ by Jonathan Snook at http://smacss.com
 
 .site-header .menu,
 .site-header .menu a,
-.site-header .menu li,
-.site-header .menu ul{
-	background: #666;
-	color: #fff;
+.site-header .menu li {
+	background: #fff;
+	/*color: #fff;*/
+}
+
+.site-header .menu ul a {
+	background: rgba( 0, 0, 0, 0.1);
+	/*color: #fff;*/
 }
 
 .site-header .menu a:hover,
 .site-header .menu a:focus{
-	background: rgba( 255, 255, 255, 0.2);
+	background: rgba( 0, 0, 0, 0.2);
 }
 
 .menu.is-mobile-menu.menu-arrows .toggle-submenu:hover{
-	background: rgba( 255, 255, 255, 0.2);
+	background: rgba( 0, 0, 0, 0.2);
 }
 
 .menu.is-mobile-menu.menu-arrows ul,
 .menu.is-mobile-menu.menu-arrows ul a{
-	background: rgba( 255, 255, 255, 0.1);
+	background: rgba( 0, 0, 0, 0.1);
 }
 
 .menu.is-mobile-menu.menu-arrows ul a:hover{
-	background: rgba( 255, 255, 255, 0.2);
+	background: rgba( 0, 0, 0, 0.2);
 }
 
 .menu.is-mobile-menu.menu-arrows ul ul a:hover{
-	background: rgba( 255, 255, 255, 0.3);
+	background: rgba( 0, 0, 0, 0.3);
 }
 
 .menu.is-mobile-menu.menu-arrows ul ul,
 .menu.is-mobile-menu.menu-arrows ul ul a{
-	background: rgba( 255, 255, 255, 0.2);
+	background: rgba( 0, 0, 0, 0.2);
 }
 
 .menu.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu{
-	background: rgba( 255, 255, 255, 0.1 );
+	background: rgba( 0, 0, 0, 0.1 );
 }
+
+
+/* =Lines
+-------------------------------------------------------------- */
+
+/*
+
+.site-header .menu ul a {
+	border: 1px solid #ddd;
+	border-top: 0 solid;
+}
+
+.site-header .menu ul li:first-child a {
+	border-top: 1px solid #ddd;
+	margin-top: -1px;
+}
+
+.site-header .menu ul ul {
+	margin-left: -1px;
+}
+
+.site-header .menu.is-mobile-menu ul a {
+	border: 0px solid #ddd;
+	border-top: 0 solid;
+}
+
+.site-header .menu.is-mobile-menu ul li:first-child a {
+	border-top: 0px solid #ddd;
+	margin-top: 0px;
+}
+
+.site-header .menu.is-mobile-menu ul ul {
+	margin-left: 0px;
+}*/
