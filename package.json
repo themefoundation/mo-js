@@ -1,0 +1,10 @@
+{
+  "name": "thmfdn",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-sass": "latest"
+  }
+}

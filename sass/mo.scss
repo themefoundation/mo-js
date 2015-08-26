@@ -1,0 +1,366 @@
+/*
+
+The mo.js stylesheet is heavily influenced by the
+scalable and modular architecture for CSS as described
+by Jonathan Snook at http://smacss.com
+
+*/
+
+@import 'mixins';
+
+/* =Variables
+-------------------------------------------------------------- */
+
+$font-size: 1rem;
+$font-size-double: 2rem;
+$font-size-triple: 3rem;
+$line-height: 2.75rem; // Line height determines the height of clickable menu items.
+$line-height-half: 1.375rem; // Half the line height.
+$tablet: 900px; // Breakpoint for applying desktop styles.
+$desktop: 1140px; // Breakpoint for applying desktop styles.
+$desktop-background-color: rgba(255,255,255,0.7);
+$desktop-background-color-hover: rgba(200,200,200,0.5);
+$desktop-border-color: #68a; // Only used if the %border-style placeholder is in use.
+$desktop-font-color: #224466; // Menu font color.
+
+$mobile-background-color: rgba(200,200,200,0.7);
+$mobile-background-color-hover: rgba(200,200,200,0.5);
+$mobile-border-color: #68a; // Only used if the %border-style placeholder is in use.
+$mobile-font-color: #000000; // Menu font color.
+
+/* =Reset
+-------------------------------------------------------------- */
+%mo-reset {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+/* =Defaults
+-------------------------------------------------------------- */
+%mo {
+	text-align: center;
+
+	@extend %mo-reset; 
+
+	&.is-js-menu {
+		@extend %is-js-menu;
+	}
+
+	&.menu-arrows {
+		@extend %arrow-style;
+	}
+
+	&.is-hidden-menu{
+		display: none;
+	}
+
+	* {
+		@extend %mo-reset;
+	}
+
+	> li {
+		display: inline;
+
+		> a {
+			display: inline-block;
+		}
+	}
+
+	li {
+		position: relative;
+		white-space: nowrap;
+
+		&:hover > ul {
+			display: block;
+		}
+
+		&.is-open-submenu > ul,
+		&.is-open-submenu:hover > ul {
+			display: block;
+		}
+	}
+
+	a {
+		position: relative;
+		padding: 0 $font-size;
+		line-height: $line-height;
+		color: $desktop-font-color;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	// Drop downs (first level)
+	ul {
+		position: absolute;
+		display: none;
+		/*top: 100%;*/
+		left: 0;
+		z-index: 1000;
+		text-align: left;
+
+		a{
+			display: block;
+		}
+
+		// Drop downs (second level and beyond)
+		ul {
+			top: 0;
+			left: 100%;
+		}
+	}
+
+	// Desktop styles
+	@include desktop {
+		&:after {
+			visibility: hidden;
+			display: block;
+			content: "";
+			clear: both;
+			height: 0;
+		}
+
+		> li {
+			display: block;
+			float: left;
+		}
+
+		> li > a {
+			margin: 0;
+		}
+
+		ul {
+			margin-top: 0;
+		}
+	}
+}
+
+/* =Block style
+-------------------------------------------------------------- */
+%block-style {
+	a:hover,
+	a:focus {
+		background: $desktop-background-color-hover;
+	}
+
+	ul a {
+		background: $desktop-background-color;
+	}
+}
+
+/* =Border style
+-------------------------------------------------------------- */
+%border-style {
+
+	@include tablet {
+
+		ul {
+			margin-top: -1px;
+
+			a {
+				border: 1px solid $desktop-border-color;
+				height: $line-height;
+				// margin-top: -1px;
+				border-bottom: 0 solid;
+			}
+
+			li:last-child {
+				border-bottom: 1px solid $desktop-border-color;
+				height: auto;
+			}
+
+			ul {
+				margin-top: 0px;
+				margin-left: -1px;
+			}
+		}
+	}
+}
+
+
+/* =Arrows
+-------------------------------------------------------------- */
+%arrow-style {
+
+	.toggle-submenu{
+		width: $line-height;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	.toggle-submenu:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 0.5em;
+		margin-top: -3px;
+		height: 0;
+		width: 0;
+
+		border: 5px solid transparent;
+		border-top-color: #000;
+	}
+
+	ul .toggle-submenu:after {
+		margin-top: -5px;
+		margin-right: -3px;
+
+		border-color: transparent;
+		border-left-color: #000;
+	}
+
+	.has-submenu > a {
+		padding-right: 2em;
+	}
+
+	// Mobile arrows
+	&.is-mobile-menu {
+		text-align: left;
+
+		> li > a{
+			display: block;
+			margin: 0;
+		}
+
+		ul{
+			position: relative;
+			top: auto;
+			margin-top: 0;
+			
+			a {
+				padding: 0 $font-size-double;
+			}
+
+			ul{
+				position: relative;
+				left: 0;
+
+				a {
+					padding: 0 $font-size-triple;
+				}
+			}
+		}
+	}
+}
+
+/* =Javascript specific styles
+-------------------------------------------------------------- */
+%is-js-menu {
+	li:hover > ul {
+		display: none;
+	}
+
+	&.menu-arrows {
+		.toggle-submenu{
+			width: 2.5em;
+		}
+
+		.has-submenu > a{
+			padding-right: 2.5em;
+		}
+
+		.toggle-submenu:after {
+			right: 0.8em;
+		}
+
+		ul .toggle-submenu:after {
+			right: 1.1em;
+		}
+
+		.is-open-submenu > ul{
+			display: block;
+		}
+
+		.is-open-submenu > a .toggle-submenu:after {
+			margin-top: -8px;
+
+			border-color: transparent;
+			border-bottom-color: #000;
+		}
+
+		ul .is-open-submenu > a .toggle-submenu:after {
+			margin-top: -5px;
+
+			border-color: transparent;
+			border-right-color: #000;
+		}
+
+		ul a .toggle-submenu:after {
+			margin-top: -3px;
+			margin-right: -3px;
+
+			border-color: transparent;
+			border-top-color: #000;
+		}
+
+		ul .is-open-submenu a .toggle-submenu:after {
+			margin-top: -8px;
+
+			border-color: transparent;
+			border-bottom-color: #000;
+		}
+	}
+}
+
+
+/* =Toggle button
+-------------------------------------------------------------- */
+%menu-toggle-button{
+	line-height: $line-height;
+	cursor: pointer;
+	text-align: left;
+	text-transform: uppercase;
+	background-color: #444;
+	color: #ffffff;
+	padding: 0 $font-size;
+	display: inline-block;
+}
+
+/* =Mobile menu
+-------------------------------------------------------------- */
+%is-mobile-menu {
+	a {
+		background-color: $mobile-background-color;
+		color: $mobile-font-color;
+	}
+
+	a:hover {
+		background-color: $mobile-background-color-hover;
+	}
+}
+
+/* =Applied placeholders
+-------------------------------------------------------------- */
+
+.site-header .menu,
+.test-menu2 {
+	@extend %mo;
+}
+
+.site-header .menu {
+	@extend %block-style;
+}
+
+.test-menu2 {
+	@extend %border-style;
+	@extend %block-style;
+}
+
+.menu-toggle-button {
+	@extend %menu-toggle-button;
+}
+
+.site-header .menu.is-mobile-menu,
+.test-menu2.is-mobile-menu {
+	@extend %is-mobile-menu;
+}
+

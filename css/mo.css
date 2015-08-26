@@ -5,326 +5,279 @@ scalable and modular architecture for CSS as described
 by Jonathan Snook at http://smacss.com
 
 */
-
-
-.site-header .menu a{
-	line-height: 2.5em;
-}
-
-/* =Module Styles
+/* =Variables
 -------------------------------------------------------------- */
-
-/* Pill style links for mobile/tablet */
-
+/* =Reset
+-------------------------------------------------------------- */
 .site-header .menu,
-.site-header .menu *{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+.test-menu2, .site-header .menu *,
+.test-menu2 * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.site-header .menu{
-	text-align: center;
-}
-
-.site-header .menu > li{
-	display: inline;
-}
-
-.site-header .menu > li > a{
-	display: inline-block;
-}
-
-.site-header .menu li{
-	position: relative;
-	white-space: nowrap;
-}
-
-.site-header .menu li:hover > ul{
-	display: block;
-}
-
-.site-header .menu a{
-	position: relative;
-	padding: 0 0.5em;
-
-}
-
-.site-header .menu ul{
-	position: absolute;
-	display: none;
-	/*top: 100%;*/
-	left: 0;
-	z-index: 1000;
-	/*margin-top: 0.90em;*/
-	text-align: left;
-}
-
-.site-header .menu ul li,
-.site-header .menu ul li a{
-	display: block;
-}
-
-.site-header .menu ul ul{
-	top: 0;
-	left: 100%;
-}
-
-/* Horizontal drop downs for desktop */
-
-@media screen and (min-width : 1140px) {
-
-	.site-header .menu:after{
-		visibility: hidden;
-		display: block;
-		content: "";
-		clear: both;
-		height: 0;
-	}
-
-	.site-header .menu > li {
-		display: block;
-		float: left;
-	}
-
-	.site-header .menu > li > a{
-		margin: 0;
-	}
-
-	.site-header .menu ul{
-		margin-top: 0;
-	}
-
-}
-
-/* =State Styles
+/* =Defaults
 -------------------------------------------------------------- */
-
-/* Toggled Mobile Styles */
-
-.menu-toggle-button{
-	width: 1.5em;
-	cursor: pointer;
-	font-size: 2em;
-	text-align: center;
-	display: block;
-}
-
-.menu.is-js-menu li:hover > ul{
-	display: none;
-}
-
-.menu.is-js-menu li.is-open-submenu > ul,
-.menu.is-js-menu li.is-open-submenu:hover > ul{
-	display: block;
-}
-
-.menu.is-mobile-menu.menu-arrows{
-	text-align: left;
-}
-
-.menu.is-mobile-menu.menu-arrows > li > a{
-	display: block;
-	margin: 0;
-}
-
-.menu.is-mobile-menu.menu-arrows ul{
-	position: relative;
-	top: auto;
-	margin-top: 0;
-	padding: 0.75em;
-}
-
-.menu.is-mobile-menu.menu-arrows ul ul{
-	position: relative;
-	left: 0;
-}
-
-.menu.is-mobile-menu.is-hidden-menu{
-	display: none;
-}
-
-/* =Arrow Styles
--------------------------------------------------------------- */
-
-.menu.menu-arrows .has-submenu > a{
-	padding-right: 3.5em;
-}
-
-.menu.menu-arrows .toggle-submenu{
-	width: 1.5em;
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-}
-
-/* Standard arrow styles */
-.menu.menu-arrows .toggle-submenu:after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	right: 0.5em;
-	margin-top: -3px;
-	height: 0;
-	width: 0;
-
-	border: 5px solid transparent;
-	border-top-color: #000;
-}
-
-.menu.menu-arrows ul .toggle-submenu:after {
-	margin-top: -5px;
-	margin-right: -3px;
-
-	border-color: transparent;
-	border-left-color: #000;
-}
-
-.menu.menu-arrows .has-submenu > a{
-	padding-right: 2em;
-}
-
-/* Javascript menu arrow styles */
-
-.menu.is-js-menu.menu-arrows .toggle-submenu{
-	width: 2.5em;
-}
-
-.menu.is-js-menu.menu-arrows .has-submenu > a{
-	padding-right: 2.5em;
-}
-
-.menu.is-js-menu.menu-arrows .toggle-submenu:after {
-	right: 0.8em;
-}
-
-.menu.is-js-menu.menu-arrows ul .toggle-submenu:after {
-	right: 1.1em;
-}
-
-.menu.menu-arrows .is-open-submenu > ul{
-	display: block;
-}
-
-.menu.menu-arrows .is-open-submenu > a .toggle-submenu:after {
-	margin-top: -8px;
-
-	border-color: transparent;
-	border-bottom-color: #000;
-}
-
-.menu.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
-	margin-top: -5px;
-	margin-right: 3px;
-
-	border-color: transparent;
-	border-right-color: #000;
-}
-
-
-/* Javascript mobile menu arrow styles */
-.menu.menu-arrows.is-mobile-menu.menu-arrows ul a .toggle-submenu:after {
-	margin-top: -3px;
-	margin-right: -3px;
-
-	border-color: transparent;
-	border-top-color: #000;
-}
-
-/* Javascript mobile menu arrow styles */
-.menu.menu-arrows.is-mobile-menu.menu-arrows ul .is-open-submenu a .toggle-submenu:after {
-	margin-top: -8px;
-
-	border-color: transparent;
-	border-bottom-color: #000;
-}
-
-
-/* =Colors
--------------------------------------------------------------- */
-
 .site-header .menu,
+.test-menu2 {
+  text-align: center;
+}
+.site-header .is-hidden-menu.menu,
+.is-hidden-menu.test-menu2 {
+  display: none;
+}
+.site-header .menu > li,
+.test-menu2 > li {
+  display: inline;
+}
+.site-header .menu > li > a,
+.test-menu2 > li > a {
+  display: inline-block;
+}
+.site-header .menu li,
+.test-menu2 li {
+  position: relative;
+  white-space: nowrap;
+}
+.site-header .menu li:hover > ul,
+.test-menu2 li:hover > ul {
+  display: block;
+}
+.site-header .menu li.is-open-submenu > ul,
+.test-menu2 li.is-open-submenu > ul, .site-header .menu li.is-open-submenu:hover > ul,
+.test-menu2 li.is-open-submenu:hover > ul {
+  display: block;
+}
 .site-header .menu a,
-.site-header .menu li {
-	background: #fff;
-	/*color: #fff;*/
+.test-menu2 a {
+  position: relative;
+  padding: 0 1rem;
+  line-height: 2.75rem;
+  color: #224466;
+}
+.site-header .menu a:focus,
+.test-menu2 a:focus {
+  outline: none;
+}
+.site-header .menu ul,
+.test-menu2 ul {
+  position: absolute;
+  display: none;
+  /*top: 100%;*/
+  left: 0;
+  z-index: 1000;
+  text-align: left;
+}
+.site-header .menu ul a,
+.test-menu2 ul a {
+  display: block;
+}
+.site-header .menu ul ul,
+.test-menu2 ul ul {
+  top: 0;
+  left: 100%;
+}
+@media (min-width: 1140px) {
+  .site-header .menu:after,
+  .test-menu2:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+  }
+  .site-header .menu > li,
+  .test-menu2 > li {
+    display: block;
+    float: left;
+  }
+  .site-header .menu > li > a,
+  .test-menu2 > li > a {
+    margin: 0;
+  }
+  .site-header .menu ul,
+  .test-menu2 ul {
+    margin-top: 0;
+  }
 }
 
-.site-header .menu ul a {
-	/*background: rgba( 0, 0, 0, 0.1);*/
-	/*color: #fff;*/
+/* =Block style
+-------------------------------------------------------------- */
+.site-header .menu a:hover, .test-menu2 a:hover,
+.site-header .menu a:focus,
+.test-menu2 a:focus {
+  background: rgba(200, 200, 200, 0.5);
+}
+.site-header .menu ul a, .test-menu2 ul a {
+  background: rgba(255, 255, 255, 0.7);
 }
 
-/*.site-header .menu a:hover,
-.site-header .menu a:focus{
-	background: rgba( 0, 0, 0, 0.2);
+/* =Border style
+-------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .test-menu2 ul {
+    margin-top: -1px;
+  }
+  .test-menu2 ul a {
+    border: 1px solid #68a;
+    height: 2.75rem;
+    border-bottom: 0 solid;
+  }
+  .test-menu2 ul li:last-child {
+    border-bottom: 1px solid #68a;
+    height: auto;
+  }
+  .test-menu2 ul ul {
+    margin-top: 0px;
+    margin-left: -1px;
+  }
 }
 
-.menu.is-mobile-menu.menu-arrows .toggle-submenu:hover{
-	background: rgba( 0, 0, 0, 0.2);
+/* =Arrows
+-------------------------------------------------------------- */
+.site-header .menu-arrows.menu .toggle-submenu,
+.menu-arrows.test-menu2 .toggle-submenu {
+  width: 2.75rem;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.site-header .menu-arrows.menu .toggle-submenu:after,
+.menu-arrows.test-menu2 .toggle-submenu:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  margin-top: -3px;
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+  border-top-color: #000;
+}
+.site-header .menu-arrows.menu ul .toggle-submenu:after,
+.menu-arrows.test-menu2 ul .toggle-submenu:after {
+  margin-top: -5px;
+  margin-right: -3px;
+  border-color: transparent;
+  border-left-color: #000;
+}
+.site-header .menu-arrows.menu .has-submenu > a,
+.menu-arrows.test-menu2 .has-submenu > a {
+  padding-right: 2em;
+}
+.site-header .is-mobile-menu.menu-arrows.menu,
+.is-mobile-menu.menu-arrows.test-menu2 {
+  text-align: left;
+}
+.site-header .is-mobile-menu.menu-arrows.menu > li > a,
+.is-mobile-menu.menu-arrows.test-menu2 > li > a {
+  display: block;
+  margin: 0;
+}
+.site-header .is-mobile-menu.menu-arrows.menu ul,
+.is-mobile-menu.menu-arrows.test-menu2 ul {
+  position: relative;
+  top: auto;
+  margin-top: 0;
+}
+.site-header .is-mobile-menu.menu-arrows.menu ul a,
+.is-mobile-menu.menu-arrows.test-menu2 ul a {
+  padding: 0 2rem;
+}
+.site-header .is-mobile-menu.menu-arrows.menu ul ul,
+.is-mobile-menu.menu-arrows.test-menu2 ul ul {
+  position: relative;
+  left: 0;
+}
+.site-header .is-mobile-menu.menu-arrows.menu ul ul a,
+.is-mobile-menu.menu-arrows.test-menu2 ul ul a {
+  padding: 0 3rem;
 }
 
-.menu.is-mobile-menu.menu-arrows ul,
-.menu.is-mobile-menu.menu-arrows ul a{
-	background: rgba( 0, 0, 0, 0.1);
+/* =Javascript specific styles
+-------------------------------------------------------------- */
+.site-header .is-js-menu.menu li:hover > ul,
+.is-js-menu.test-menu2 li:hover > ul {
+  display: none;
+}
+.site-header .menu-arrows.is-js-menu.menu .toggle-submenu,
+.menu-arrows.is-js-menu.test-menu2 .toggle-submenu {
+  width: 2.5em;
+}
+.site-header .menu-arrows.is-js-menu.menu .has-submenu > a,
+.menu-arrows.is-js-menu.test-menu2 .has-submenu > a {
+  padding-right: 2.5em;
+}
+.site-header .menu-arrows.is-js-menu.menu .toggle-submenu:after,
+.menu-arrows.is-js-menu.test-menu2 .toggle-submenu:after {
+  right: 0.8em;
+}
+.site-header .menu-arrows.is-js-menu.menu ul .toggle-submenu:after,
+.menu-arrows.is-js-menu.test-menu2 ul .toggle-submenu:after {
+  right: 1.1em;
+}
+.site-header .menu-arrows.is-js-menu.menu .is-open-submenu > ul,
+.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > ul {
+  display: block;
+}
+.site-header .menu-arrows.is-js-menu.menu .is-open-submenu > a .toggle-submenu:after,
+.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #000;
+}
+.site-header .menu-arrows.is-js-menu.menu ul .is-open-submenu > a .toggle-submenu:after,
+.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -5px;
+  border-color: transparent;
+  border-right-color: #000;
+}
+.site-header .menu-arrows.is-js-menu.menu ul a .toggle-submenu:after,
+.menu-arrows.is-js-menu.test-menu2 ul a .toggle-submenu:after {
+  margin-top: -3px;
+  margin-right: -3px;
+  border-color: transparent;
+  border-top-color: #000;
+}
+.site-header .menu-arrows.is-js-menu.menu ul .is-open-submenu a .toggle-submenu:after,
+.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #000;
 }
 
-.menu.is-mobile-menu.menu-arrows ul a:hover{
-	background: rgba( 0, 0, 0, 0.2);
+/* =Toggle button
+-------------------------------------------------------------- */
+.menu-toggle-button {
+  line-height: 2.75rem;
+  cursor: pointer;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: #444;
+  color: #ffffff;
+  padding: 0 1rem;
+  display: inline-block;
 }
 
-.menu.is-mobile-menu.menu-arrows ul ul a:hover{
-	background: rgba( 0, 0, 0, 0.3);
+/* =Mobile menu
+-------------------------------------------------------------- */
+.site-header .menu.is-mobile-menu a,
+.test-menu2.is-mobile-menu a {
+  background-color: rgba(200, 200, 200, 0.7);
+  color: #000000;
+}
+.site-header .menu.is-mobile-menu a:hover,
+.test-menu2.is-mobile-menu a:hover {
+  background-color: rgba(200, 200, 200, 0.5);
 }
 
-.menu.is-mobile-menu.menu-arrows ul ul,
-.menu.is-mobile-menu.menu-arrows ul ul a{
-	background: rgba( 0, 0, 0, 0.2);
-}
-
-.menu.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu{
-	background: rgba( 0, 0, 0, 0.1 );
-}
-*/
-
-/* =Lines
+/* =Applied placeholders
 -------------------------------------------------------------- */
 
-
-
-.site-header .menu ul a {
-	border: 1px solid #ddd;
-	margin-top: -1px;
-	border-bottom: 0 solid;
-}
-
-.site-header .menu ul ul a {
-	margin-top: 0;
-}
-
-.site-header .menu ul li:last-child a {
-	border-bottom: 1px solid #ddd;
-}
-
-.site-header .menu ul ul {
-	margin-left: -1px;
-}
-
-.site-header .menu.is-mobile-menu ul a {
-	border: 0px solid #ddd;
-	border-top: 0 solid;
-}
-
-.site-header .menu.is-mobile-menu ul li:first-child a {
-	border-top: 0px solid #ddd;
-	margin-top: 0px;
-}
-
-.site-header .menu.is-mobile-menu ul ul {
-	margin-left: 0px;
-}
+/*# sourceMappingURL=mo.css.map */

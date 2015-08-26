@@ -5,79 +5,152 @@
 	<meta name="viewport" content="width=device-width" />
 
 	<title>Mobile First Horizontal Navigation</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/mo.css" />
 	<script type='text/javascript' src='js/jquery-1.9.1.min.js'></script>
 	<script type='text/javascript' src='js/mo.js'></script>
 	<script type='text/javascript' src='js/demo.js'></script>
+
+	<style>
+
+		/*
+		These styles are for the demo, not for the actual menus.
+		You don't need them in your project.
+		*/
+
+		body {
+			font-family: 'Open Sans', helvetica, sans-serif;
+			/*background-color: #f6f6f6;*/
+		}
+
+		#page {
+			/*background: url(img/grid-22.jpg); for testing line height */
+			width: 1140px;
+			max-width: 85%;
+			margin: 2.75rem auto;
+			padding: 1.375rem;
+			border: 4px solid #dddddd;
+			border-radius: 2px;
+		}
+
+		h1 {
+			font-size: 4rem;
+			width: 800px;
+			margin: 2.75rem auto;
+			padding:  0 0.3rem;
+			max-width: 90%;
+		}
+
+		.thmfdn-menu-container {
+			width: 800px;
+			max-width: 90%;	
+			margin: 0 auto;
+		}
+
+		.content {
+			width: 800px;
+			max-width: 90%;	
+			margin: 0 auto;
+			margin-top: 2.75rem;
+			padding-bottom: 2.75em;
+		}
+
+		p,
+		a {
+			margin-bottom: 1.375rem;
+			line-height: 1.375rem;
+		}
+
+		@media (min-width: 900px) and (max-width: 1139px) {
+			h1 {
+				text-align: center;
+			}
+		}
+
+	</style>
 </head>
 
 <body>
 
+<div id="page">
+
 <div class="site-header">
 	<ul class="menu test-menu">
-		<li><a href="#">Menu Item #1</a></li>
-		<li><a href="#">Menu Item #2</a>
+		<li><a href="http://example.com">Menu Item #1</a></li>
+		<li><a href="http://example.com">Menu Item #2</a>
 			<ul class="sub-menu">
-				<li><a href="#">Sub Menu Item #1</a></li>
-				<li><a href="#">Sub Menu Item #2</a>
+				<li><a href="http://example.com">Sub Menu Item #1</a></li>
+				<li><a href="http://example.com">Sub Menu Item #2</a>
 					<ul class="sub-menu">
-						<li><a href="#">Sub Sub Menu Item #1</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #1</a></li>
 					</ul>
 				</li>
 			</ul>
 		</li>
-		<li><a href="#">Menu Item #3</a>
+		<li><a href="http://example.com">Menu Item #3</a>
 			<ul class="sub-menu">
-				<li><a href="#">Sub Menu Item #1</a></li>
-				<li><a href="#">Sub Menu Item #2</a>
+				<li><a href="http://example.com">Sub Menu Item #1</a></li>
+				<li><a href="http://example.com">Sub Menu Item #2</a>
 					<ul class="sub-menu">
-						<li><a href="#">Sub Sub Menu Item #1</a></li>
-						<li><a href="#">Sub Sub Menu Item #2</a></li>
-						<li><a href="#">Sub Sub Menu Item #3</a></li>
-						<li><a href="#">Sub Sub Menu Item #4</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #1</a>
+							<ul class="sub-menu">
+								<li><a href="http://example.com">Triple Sub Menu Item #1</a></li>
+								<li><a href="http://example.com">Triple Sub Menu Item #2</a></li>
+								<li><a href="http://example.com">Triple Sub Menu Item #3</a></li>
+								<li><a href="http://example.com">Triple Sub Menu Item #4</a></li>
+							</ul>
+						</li>
+						<li><a href="http://example.com">Sub Sub Menu Item #2</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #3</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #4</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Sub Menu Item #3</a></li>
-			</ul>
-		</li>
-	</ul>
-
-
-	<br>
-	<h1 style="width: 800px; max-width: 90%; margin: 0 auto;">mo.js</h1>
-	<p style="width: 800px; max-width: 90%; margin: 0 auto;">A mobile first and progressively enhanced menu object.</p>
-	<br>
-
-	<ul class="menu test-menu2">
-		<li><a href="#">Menu Item #4</a></li>
-		<li><a href="#">Menu Item #5</a>
-			<ul class="sub-menu">
-				<li><a href="#">Sub Menu Item #1</a></li>
-				<li><a href="#">Sub Menu Item #2</a>
-					<ul class="sub-menu">
-						<li><a href="#">Sub Sub Menu Item #1</a></li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<li><a href="#">Menu Item #6</a>
-			<ul class="sub-menu">
-				<li><a href="#">Sub Menu Item #1</a>
-					<ul class="sub-menu">
-						<li><a href="#">Sub Sub Menu Item #1</a></li>
-						<li><a href="#">Sub Sub Menu Item #2</a></li>
-						<li><a href="#">Sub Sub Menu Item #3</a></li>
-						<li><a href="#">Sub Sub Menu Item #4</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Sub Menu Item #2</a></li>
-				<li><a href="#">Sub Menu Item #3</a></li>
+				<li><a href="http://example.com">Sub Menu Item #3</a></li>
 			</ul>
 		</li>
 	</ul>
 
+	<h1>mo.js</h1>
+
+	<ul class="test-menu2">
+		<li><a href="http://example.com">Menu Item #4</a></li>
+		<li><a href="http://example.com">Menu Item #5</a>
+			<ul class="sub-menu">
+				<li><a href="http://example.com">Sub Menu Item #1</a></li>
+				<li><a href="http://example.com">Sub Menu Item #2</a>
+					<ul class="sub-menu">
+						<li><a href="http://example.com">Sub Sub Menu Item #1</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="http://example.com">Menu Item #6</a>
+			<ul class="sub-menu">
+				<li><a href="http://example.com">Sub Menu Item #1</a>
+					<ul class="sub-menu">
+						<li><a href="http://example.com">Sub Sub Menu Item #1</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #2</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #3</a></li>
+						<li><a href="http://example.com">Sub Sub Menu Item #4</a></li>
+					</ul>
+				</li>
+				<li><a href="http://example.com">Sub Menu Item #2</a></li>
+				<li><a href="http://example.com">Sub Menu Item #3</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="content">
+		<p>mo.js is a mobile first, keyboard friendly, progressively enhanced menu object.</p>
+		<p>Brought to you by <a href="http://themefoundation.com">Theme Foundation</a></p>
+		<h2>Features</h2>
+		<h4>Sass</h4>
+		<p>Modular Sass design. Simply apply the Sass placeholders to your menu and you're ready to go!</p>
+		<h4>jQuery</h4>
+		<p>Mobile menu, submenu arrows, and keyboard navigation are all added automatically.</p>
+	</div>
 </div><!--.site-header-->
+
+</div><!--#page-->
 
 </body>
 </html>
