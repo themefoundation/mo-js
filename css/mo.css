@@ -256,11 +256,11 @@ by Jonathan Snook at http://smacss.com
 }
 
 .site-header .menu ul a {
-	background: rgba( 0, 0, 0, 0.1);
+	/*background: rgba( 0, 0, 0, 0.1);*/
 	/*color: #fff;*/
 }
 
-.site-header .menu a:hover,
+/*.site-header .menu a:hover,
 .site-header .menu a:focus{
 	background: rgba( 0, 0, 0, 0.2);
 }
@@ -290,21 +290,25 @@ by Jonathan Snook at http://smacss.com
 .menu.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu{
 	background: rgba( 0, 0, 0, 0.1 );
 }
-
+*/
 
 /* =Lines
 -------------------------------------------------------------- */
 
-/*
+
 
 .site-header .menu ul a {
 	border: 1px solid #ddd;
-	border-top: 0 solid;
+	margin-top: -1px;
+	border-bottom: 0 solid;
 }
 
-.site-header .menu ul li:first-child a {
-	border-top: 1px solid #ddd;
-	margin-top: -1px;
+.site-header .menu ul ul a {
+	margin-top: 0;
+}
+
+.site-header .menu ul li:last-child a {
+	border-bottom: 1px solid #ddd;
 }
 
 .site-header .menu ul ul {
@@ -323,4 +327,4 @@ by Jonathan Snook at http://smacss.com
 
 .site-header .menu.is-mobile-menu ul ul {
 	margin-left: 0px;
-}*/
+}
