@@ -328,7 +328,7 @@ $mobile-font-color: #000000; // Menu font color.
 /* =Mobile menu
 -------------------------------------------------------------- */
 %is-mobile-menu {
-	a {
+	li a {
 		background-color: $mobile-background-color;
 		color: $mobile-font-color;
 	}
@@ -359,8 +359,9 @@ $mobile-font-color: #000000; // Menu font color.
 	@extend %menu-toggle-button;
 }
 
-.site-header .menu.is-mobile-menu,
-.test-menu2.is-mobile-menu {
+.site-header .is-mobile-menu {
+	@extend %mo;
 	@extend %is-mobile-menu;
+
 }
 

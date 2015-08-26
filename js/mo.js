@@ -16,6 +16,7 @@
 			arrowClass: 'menu-arrows',
 			jsClass: 'is-js-menu',
 			mobileClass: 'is-mobile-menu',
+			hasMobileClass: 'has-mobile-menu',
 			hideMobileClass: 'is-hidden-menu',
 			hasSubmenuClass: 'has-submenu',
 			openSubmenuClass: 'is-open-submenu',
@@ -296,141 +297,6 @@
 				e.stopPropagation();
 			});
 
-			// Opens and closes submenus via keyboard.
-			// menu.el.find('.'+mo.hasSubmenuClass).keydown(function(e){
-			// 	// alert($(this).html());
-			// 	if (e.altKey || e.ctrlKey) {
-			// 		// Modifier key pressed: Do not process
-			// 		return true;
-			// 	}
-
-			// 	switch(e.keyCode) {
-
-			// 		// Opens submenu when "Enter" key is pressed.
-			// 		case menu.keys.enter: {
-
-			// 			// Is the submenu closed?
-			// 			if (! $(this).hasClass('is-open-submenu') ) {
-
-			// 				// Opens the submenu.
-			// 				$(this).addClass('is-open-submenu');
-
-			// 				// Sets the focus to the first menu item of the newly opened submenu.
-			// 				$(this).find('ul li a').first().focus();
-
-			// 				// Prevents the default behavior (following the link).
-			// 				e.preventDefault();
-
-			// 			}
-
-			// 			break;
-			// 		}
-
-			// 		// Opens submenu when "Spacebar" key is pressed.
-			// 		case menu.keys.space: {
-
-			// 			// Is the submenu closed?
-			// 			if (! $(this).hasClass('is-open-submenu') ) {
-
-			// 				// Opens the submenu.
-			// 				$(this).addClass('is-open-submenu');
-
-			// 				// Sets the focus to the first menu item of the newly opened submenu.
-			// 				$(this).find('ul li a').first().focus();
-
-			// 				// Prevents the default behavior (following the link).
-			// 				e.preventDefault();
-
-			// 			}
-
-			// 			break;
-			// 		}
-
-			// 		// Navigates to next submenu item when "Down" key is pressed.
-			// 		// case menu.keys.down: {
-
-			// 		// 	// Is the submenu closed?
-			// 		// 	// if (! $(this).hasClass('is-open-submenu') ) {
-
-			// 		// 	// 	// Opens the submenu.
-			// 		// 	// 	$(this).addClass('is-open-submenu');
-
-			// 		// 	// 	// Sets the focus to the first menu item of the newly opened submenu.
-			// 		// 	// 	$(this).find('ul li a').first().focus();
-
-			// 		// 	// 	// Prevents the default behavior (following the link).
-			// 		// 	// 	e.preventDefault();
-
-			// 		// 	// }
-			// 		// 	alert($(this).html());
-			// 		// 	$(this).next('li').find('a').focus();
-
-			// 		// 	break;
-			// 		// }
-
-			// 		// Closes submenu when "Esc" key is pressed.
-			// 		case menu.keys.esc: {
-
-			// 			// Returns focus to the parent menu item
-			// 			$(this).closest('li.is-open-submenu').find('a').first().focus();
-
-			// 			// Closes submenu
-			// 			$(this).closest('.is-open-submenu').removeClass('is-open-submenu');
-
-			// 			break;
-			// 		}
-			// 	}
-
-			// 	// Keeps event from bubbling up to menus/submenus higher up in the DOM.
-			// 	e.stopPropagation();
-			// });
-
-			// Opens and closes submenus via keyboard.
-			// menu.el.find('.is-open-submenu a').keydown(function(e){
-			// 	alert($(this).html());
-			// 	if (e.altKey || e.ctrlKey) {
-			// 		// Modifier key pressed: Do not process
-			// 		return true;
-			// 	}
-
-			// 	switch(e.keyCode) {
-
-			// 		// Opens submenu when "Enter" key is pressed.
-			// 		case menu.keys.down: {
-			// 			alert('down');
-			// 		}
-
-			// 	}
-			// });
-
-			// Expand submenus on focus
-			// menu.el.find('li > a').focus(function(){
-
-			// 	var mo = menu.options;
-			// 	var parentMenu = $(this).parents('.'+mo.hasSubmenuClass );
-
-			// 	// Remove previously opened submenus
-			// 	$('.thmfdn-menu-container').find('.'+mo.hasSubmenuClass ).not(parentMenu).removeClass( mo.openSubmenuClass );
-
-			// 	// Open focused submenu
-			// 	if(!parentMenu.hasClass(mo.openSubmenuClass)){
-			// 		parentMenu.addClass( mo.openSubmenuClass );
-
-			// 		// Close focused submenu when click occurs outside submenu
-			// 		$(document).click(function(event) {
-			// 			if( $(event.target).parents('.'+mo.openSubmenuClass).length === 0 ) {
-			// 				$('.'+mo.openSubmenuClass).removeClass(mo.openSubmenuClass);
-			// 			}
-			// 		});
-
-			// 		// Close focused submenu when hover submenu opens
-			// 		$('.'+mo.hasSubmenuClass+' a' ).mouseenter(function(){
-			// 			$('.'+mo.openSubmenuClass).removeClass(mo.openSubmenuClass);
-			// 		});	
-			// 	}
-			// });
-
-
 			// Initialize the mobile menu.
 			menu.toggleMobile();
 
@@ -521,6 +387,7 @@
 			if ( width < mo.mobileBreakpoint && !this.el.hasClass(mo.mobileClass) ) {
 				// Show the menu toggle button.
 				this.toggleButton.show();
+				$('body').addClass(mo.hasMobileClass);
 
 				// Add the mobile, js, and hideMobile classes to the main menu element.
 				this.el.addClass(mo.mobileClass).addClass(mo.jsClass).addClass(mo.hideMobileClass);
@@ -593,7 +460,7 @@
 	 *
 	 * @param object settings The settings for this menu (options, custom class names, etc.).
 	 */
-	$.fn.thmfdnMenu = function( settings ) {
+	$.fn.mojs = function( settings ) {
 		return this.each(function() {
 			var menu = Object.create(Menu);
 			menu.init( this, settings );

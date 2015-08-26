@@ -10,8 +10,8 @@ by Jonathan Snook at http://smacss.com
 /* =Reset
 -------------------------------------------------------------- */
 .site-header .menu,
-.test-menu2, .site-header .menu *,
-.test-menu2 * {
+.test-menu2, .site-header .is-mobile-menu, .site-header .menu *,
+.test-menu2 *, .site-header .is-mobile-menu * {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -23,48 +23,48 @@ by Jonathan Snook at http://smacss.com
 /* =Defaults
 -------------------------------------------------------------- */
 .site-header .menu,
-.test-menu2 {
+.test-menu2, .site-header .is-mobile-menu {
   text-align: center;
 }
 .site-header .is-hidden-menu.menu,
-.is-hidden-menu.test-menu2 {
+.is-hidden-menu.test-menu2, .site-header .is-hidden-menu.is-mobile-menu {
   display: none;
 }
 .site-header .menu > li,
-.test-menu2 > li {
+.test-menu2 > li, .site-header .is-mobile-menu > li {
   display: inline;
 }
 .site-header .menu > li > a,
-.test-menu2 > li > a {
+.test-menu2 > li > a, .site-header .is-mobile-menu > li > a {
   display: inline-block;
 }
 .site-header .menu li,
-.test-menu2 li {
+.test-menu2 li, .site-header .is-mobile-menu li {
   position: relative;
   white-space: nowrap;
 }
 .site-header .menu li:hover > ul,
-.test-menu2 li:hover > ul {
+.test-menu2 li:hover > ul, .site-header .is-mobile-menu li:hover > ul {
   display: block;
 }
 .site-header .menu li.is-open-submenu > ul,
-.test-menu2 li.is-open-submenu > ul, .site-header .menu li.is-open-submenu:hover > ul,
-.test-menu2 li.is-open-submenu:hover > ul {
+.test-menu2 li.is-open-submenu > ul, .site-header .is-mobile-menu li.is-open-submenu > ul, .site-header .menu li.is-open-submenu:hover > ul,
+.test-menu2 li.is-open-submenu:hover > ul, .site-header .is-mobile-menu li.is-open-submenu:hover > ul {
   display: block;
 }
 .site-header .menu a,
-.test-menu2 a {
+.test-menu2 a, .site-header .is-mobile-menu a {
   position: relative;
   padding: 0 1rem;
   line-height: 2.75rem;
   color: #224466;
 }
 .site-header .menu a:focus,
-.test-menu2 a:focus {
+.test-menu2 a:focus, .site-header .is-mobile-menu a:focus {
   outline: none;
 }
 .site-header .menu ul,
-.test-menu2 ul {
+.test-menu2 ul, .site-header .is-mobile-menu ul {
   position: absolute;
   display: none;
   /*top: 100%;*/
@@ -73,17 +73,17 @@ by Jonathan Snook at http://smacss.com
   text-align: left;
 }
 .site-header .menu ul a,
-.test-menu2 ul a {
+.test-menu2 ul a, .site-header .is-mobile-menu ul a {
   display: block;
 }
 .site-header .menu ul ul,
-.test-menu2 ul ul {
+.test-menu2 ul ul, .site-header .is-mobile-menu ul ul {
   top: 0;
   left: 100%;
 }
 @media (min-width: 1140px) {
   .site-header .menu:after,
-  .test-menu2:after {
+  .test-menu2:after, .site-header .is-mobile-menu:after {
     visibility: hidden;
     display: block;
     content: "";
@@ -91,16 +91,16 @@ by Jonathan Snook at http://smacss.com
     height: 0;
   }
   .site-header .menu > li,
-  .test-menu2 > li {
+  .test-menu2 > li, .site-header .is-mobile-menu > li {
     display: block;
     float: left;
   }
   .site-header .menu > li > a,
-  .test-menu2 > li > a {
+  .test-menu2 > li > a, .site-header .is-mobile-menu > li > a {
     margin: 0;
   }
   .site-header .menu ul,
-  .test-menu2 ul {
+  .test-menu2 ul, .site-header .is-mobile-menu ul {
     margin-top: 0;
   }
 }
@@ -140,7 +140,7 @@ by Jonathan Snook at http://smacss.com
 /* =Arrows
 -------------------------------------------------------------- */
 .site-header .menu-arrows.menu .toggle-submenu,
-.menu-arrows.test-menu2 .toggle-submenu {
+.menu-arrows.test-menu2 .toggle-submenu, .site-header .menu-arrows.is-mobile-menu .toggle-submenu {
   width: 2.75rem;
   display: inline-block;
   position: absolute;
@@ -149,7 +149,7 @@ by Jonathan Snook at http://smacss.com
   right: 0;
 }
 .site-header .menu-arrows.menu .toggle-submenu:after,
-.menu-arrows.test-menu2 .toggle-submenu:after {
+.menu-arrows.test-menu2 .toggle-submenu:after, .site-header .menu-arrows.is-mobile-menu .toggle-submenu:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -161,92 +161,86 @@ by Jonathan Snook at http://smacss.com
   border-top-color: #000;
 }
 .site-header .menu-arrows.menu ul .toggle-submenu:after,
-.menu-arrows.test-menu2 ul .toggle-submenu:after {
+.menu-arrows.test-menu2 ul .toggle-submenu:after, .site-header .menu-arrows.is-mobile-menu ul .toggle-submenu:after {
   margin-top: -5px;
   margin-right: -3px;
   border-color: transparent;
   border-left-color: #000;
 }
 .site-header .menu-arrows.menu .has-submenu > a,
-.menu-arrows.test-menu2 .has-submenu > a {
+.menu-arrows.test-menu2 .has-submenu > a, .site-header .menu-arrows.is-mobile-menu .has-submenu > a {
   padding-right: 2em;
 }
-.site-header .is-mobile-menu.menu-arrows.menu,
-.is-mobile-menu.menu-arrows.test-menu2 {
+.is-mobile-menu.menu-arrows.test-menu2, .site-header .is-mobile-menu.menu-arrows {
   text-align: left;
 }
-.site-header .is-mobile-menu.menu-arrows.menu > li > a,
-.is-mobile-menu.menu-arrows.test-menu2 > li > a {
+.is-mobile-menu.menu-arrows.test-menu2 > li > a, .site-header .is-mobile-menu.menu-arrows > li > a {
   display: block;
   margin: 0;
 }
-.site-header .is-mobile-menu.menu-arrows.menu ul,
-.is-mobile-menu.menu-arrows.test-menu2 ul {
+.is-mobile-menu.menu-arrows.test-menu2 ul, .site-header .is-mobile-menu.menu-arrows ul {
   position: relative;
   top: auto;
   margin-top: 0;
 }
-.site-header .is-mobile-menu.menu-arrows.menu ul a,
-.is-mobile-menu.menu-arrows.test-menu2 ul a {
+.is-mobile-menu.menu-arrows.test-menu2 ul a, .site-header .is-mobile-menu.menu-arrows ul a {
   padding: 0 2rem;
 }
-.site-header .is-mobile-menu.menu-arrows.menu ul ul,
-.is-mobile-menu.menu-arrows.test-menu2 ul ul {
+.is-mobile-menu.menu-arrows.test-menu2 ul ul, .site-header .is-mobile-menu.menu-arrows ul ul {
   position: relative;
   left: 0;
 }
-.site-header .is-mobile-menu.menu-arrows.menu ul ul a,
-.is-mobile-menu.menu-arrows.test-menu2 ul ul a {
+.is-mobile-menu.menu-arrows.test-menu2 ul ul a, .site-header .is-mobile-menu.menu-arrows ul ul a {
   padding: 0 3rem;
 }
 
 /* =Javascript specific styles
 -------------------------------------------------------------- */
 .site-header .is-js-menu.menu li:hover > ul,
-.is-js-menu.test-menu2 li:hover > ul {
+.is-js-menu.test-menu2 li:hover > ul, .site-header .is-js-menu.is-mobile-menu li:hover > ul {
   display: none;
 }
 .site-header .menu-arrows.is-js-menu.menu .toggle-submenu,
-.menu-arrows.is-js-menu.test-menu2 .toggle-submenu {
+.menu-arrows.is-js-menu.test-menu2 .toggle-submenu, .site-header .menu-arrows.is-js-menu.is-mobile-menu .toggle-submenu {
   width: 2.5em;
 }
 .site-header .menu-arrows.is-js-menu.menu .has-submenu > a,
-.menu-arrows.is-js-menu.test-menu2 .has-submenu > a {
+.menu-arrows.is-js-menu.test-menu2 .has-submenu > a, .site-header .menu-arrows.is-js-menu.is-mobile-menu .has-submenu > a {
   padding-right: 2.5em;
 }
 .site-header .menu-arrows.is-js-menu.menu .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 .toggle-submenu:after {
+.menu-arrows.is-js-menu.test-menu2 .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu .toggle-submenu:after {
   right: 0.8em;
 }
 .site-header .menu-arrows.is-js-menu.menu ul .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul .toggle-submenu:after {
+.menu-arrows.is-js-menu.test-menu2 ul .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul .toggle-submenu:after {
   right: 1.1em;
 }
 .site-header .menu-arrows.is-js-menu.menu .is-open-submenu > ul,
-.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > ul {
+.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > ul, .site-header .menu-arrows.is-js-menu.is-mobile-menu .is-open-submenu > ul {
   display: block;
 }
 .site-header .menu-arrows.is-js-menu.menu .is-open-submenu > a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > a .toggle-submenu:after {
+.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu .is-open-submenu > a .toggle-submenu:after {
   margin-top: -8px;
   border-color: transparent;
   border-bottom-color: #000;
 }
 .site-header .menu-arrows.is-js-menu.menu ul .is-open-submenu > a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu > a .toggle-submenu:after {
+.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu > a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul .is-open-submenu > a .toggle-submenu:after {
   margin-top: -5px;
   border-color: transparent;
   border-right-color: #000;
 }
 .site-header .menu-arrows.is-js-menu.menu ul a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul a .toggle-submenu:after {
+.menu-arrows.is-js-menu.test-menu2 ul a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul a .toggle-submenu:after {
   margin-top: -3px;
   margin-right: -3px;
   border-color: transparent;
   border-top-color: #000;
 }
 .site-header .menu-arrows.is-js-menu.menu ul .is-open-submenu a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu a .toggle-submenu:after {
+.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul .is-open-submenu a .toggle-submenu:after {
   margin-top: -8px;
   border-color: transparent;
   border-bottom-color: #000;
@@ -267,13 +261,11 @@ by Jonathan Snook at http://smacss.com
 
 /* =Mobile menu
 -------------------------------------------------------------- */
-.site-header .menu.is-mobile-menu a,
-.test-menu2.is-mobile-menu a {
+.site-header .is-mobile-menu li a {
   background-color: rgba(200, 200, 200, 0.7);
   color: #000000;
 }
-.site-header .menu.is-mobile-menu a:hover,
-.test-menu2.is-mobile-menu a:hover {
+.site-header .is-mobile-menu a:hover {
   background-color: rgba(200, 200, 200, 0.5);
 }
 
