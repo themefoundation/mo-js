@@ -10,7 +10,7 @@
 			mobileBreakpoint: 900,
 			breakpointType: 'screen', // 'screen' or 'element'
 			mobileMenuLocation: '',
-			// toggleContainerID: 'menu-toggle-container',
+			toggleContainerID: 'mojs-toggle-container',
 			toggleButtonID: '',
 			toggleButtonContent: 'Menu',
 			arrowClass: 'menu-arrows',
@@ -350,9 +350,9 @@
 				// Automatically insert a toggle button if previously selected button doesn't exist.
 				if ( menu.toggleButton.length < 1 ) {
 					if ( '' === mo.mobileMenuLocation ) {
-						$('<span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">' + mo.toggleButtonContent + '</span>').prependTo(menu.container);
+						$('<div id="'+mo.toggleContainerID+'"><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">' + mo.toggleButtonContent + '</span></div>').prependTo(menu.container);
 					} else {
-						$('<span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">' + mo.toggleButtonContent + '</span>').prependTo(mo.mobileMenuLocation);
+						$('<div id="'+mo.toggleContainerID+'"><span class="menu-toggle-button mojs-toggle-' + mojsMenuId + '">' + mo.toggleButtonContent + '</span></div>').prependTo(mo.mobileMenuLocation);
 					}
 					menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
 					if ( mo.toggleButtonID ) {
