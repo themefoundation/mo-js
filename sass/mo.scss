@@ -11,22 +11,26 @@ by Jonathan Snook at http://smacss.com
 /* =Variables
 -------------------------------------------------------------- */
 
-$font-size: 1rem;
-$font-size-double: 2rem;
-$font-size-triple: 3rem;
-$line-height: 2.75rem; // Line height determines the height of clickable menu items.
-$line-height-half: 1.375rem; // Half the line height.
-$tablet: 900px; // Breakpoint for applying desktop styles.
-$desktop: 1140px; // Breakpoint for applying desktop styles.
+$font-size: 1; // Default menu font size.
+$line-height: 2.75; // Line height determines the height of clickable menu items.
+$unit: rem; // Default menu unit of measurement.
+
+$breakpoint-tablet: 900px; // Breakpoint for applying desktop styles.
+$breakpoint-desktop: 1140px; // Breakpoint for applying desktop styles.
+
 $desktop-background-color: rgba(255,255,255,0.7);
 $desktop-background-color-hover: rgba(200,200,200,0.5);
 $desktop-border-color: #68a; // Only used if the %border-style placeholder is in use.
 $desktop-font-color: #224466; // Menu font color.
 
-$mobile-background-color: rgba(200,200,200,0.7);
-$mobile-background-color-hover: rgba(200,200,200,0.5);
+$mobile-background-color: #eee;
+$mobile-background-color-hover: #ddd;
 $mobile-border-color: #68a; // Only used if the %border-style placeholder is in use.
 $mobile-font-color: #000000; // Menu font color.
+
+$class-js: is-js-menu; // Should match classJS from mo.js file.
+$class-arrows: menu-arrows; // Should match classArrows from mo.js file.
+$class-hidden: is-hidden-menu; // Should match classHideMobile from mo.js file.
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -47,15 +51,15 @@ $mobile-font-color: #000000; // Menu font color.
 
 	@extend %mo-reset; 
 
-	&.is-js-menu {
+	&.#{$class-js} {
 		@extend %is-js-menu;
 	}
 
-	&.menu-arrows {
-		@extend %arrow-style;
+	&.#{$class-arrows} {
+		@extend %arrow-style-dropdown;
 	}
 
-	&.is-hidden-menu{
+	&.#{$class-hidden} {
 		display: none;
 	}
 
@@ -64,7 +68,7 @@ $mobile-font-color: #000000; // Menu font color.
 	}
 
 	> li {
-		display: inline;
+		display: inline-block;
 
 		> a {
 			display: inline-block;
@@ -87,25 +91,21 @@ $mobile-font-color: #000000; // Menu font color.
 
 	a {
 		position: relative;
-		padding: 0 $font-size;
-		line-height: $line-height;
+		padding: 0 $font-size + $unit;
+		line-height: $line-height + $unit;
 		color: $desktop-font-color;
-
-		&:focus {
-			outline: none;
-		}
 	}
 
 	// Drop downs (first level)
 	ul {
 		position: absolute;
 		display: none;
-		/*top: 100%;*/
+		// top: 100%;
 		left: 0;
 		z-index: 1000;
 		text-align: left;
 
-		a{
+		a {
 			display: block;
 		}
 
@@ -147,6 +147,7 @@ $mobile-font-color: #000000; // Menu font color.
 	a:hover,
 	a:focus {
 		background: $desktop-background-color-hover;
+		outline: none;
 	}
 
 	ul a {
@@ -165,9 +166,10 @@ $mobile-font-color: #000000; // Menu font color.
 
 			a {
 				border: 1px solid $desktop-border-color;
-				height: $line-height;
+				height: $line-height + $unit;
 				// margin-top: -1px;
 				border-bottom: 0 solid;
+				outline: none;
 			}
 
 			li:last-child {
@@ -186,10 +188,10 @@ $mobile-font-color: #000000; // Menu font color.
 
 /* =Arrows
 -------------------------------------------------------------- */
-%arrow-style {
+%arrow-style-dropdown {
 
 	.toggle-submenu{
-		width: $line-height;
+		width: $line-height + $unit;
 		display: inline-block;
 		position: absolute;
 		top: 0;
@@ -201,7 +203,7 @@ $mobile-font-color: #000000; // Menu font color.
 		content: '';
 		position: absolute;
 		top: 50%;
-		right: 0.5em;
+		right: 40%;
 		margin-top: -3px;
 		height: 0;
 		width: 0;
@@ -212,69 +214,30 @@ $mobile-font-color: #000000; // Menu font color.
 
 	ul .toggle-submenu:after {
 		margin-top: -5px;
-		margin-right: -3px;
-
+		// margin-right: -3px;
 		border-color: transparent;
 		border-left-color: #000;
 	}
 
 	.has-submenu > a {
-		padding-right: 2em;
-	}
-
-	// Mobile arrows
-	&.is-mobile-menu {
-		text-align: left;
-
-		> li > a{
-			display: block;
-			margin: 0;
-		}
-
-		ul{
-			position: relative;
-			top: auto;
-			margin-top: 0;
-			
-			a {
-				padding: 0 $font-size-double;
-			}
-
-			ul{
-				position: relative;
-				left: 0;
-
-				a {
-					padding: 0 $font-size-triple;
-				}
-			}
-		}
+		padding-right: $line-height + $unit;
 	}
 }
+
+
 
 /* =Javascript specific styles
 -------------------------------------------------------------- */
 %is-js-menu {
+	div {
+		display: block;
+	}
+
 	li:hover > ul {
 		display: none;
 	}
 
 	&.menu-arrows {
-		.toggle-submenu{
-			width: 2.5em;
-		}
-
-		.has-submenu > a{
-			padding-right: 2.5em;
-		}
-
-		.toggle-submenu:after {
-			right: 0.8em;
-		}
-
-		ul .toggle-submenu:after {
-			right: 1.1em;
-		}
 
 		.is-open-submenu > ul{
 			display: block;
@@ -282,29 +245,25 @@ $mobile-font-color: #000000; // Menu font color.
 
 		.is-open-submenu > a .toggle-submenu:after {
 			margin-top: -8px;
-
 			border-color: transparent;
 			border-bottom-color: #000;
 		}
 
 		ul .is-open-submenu > a .toggle-submenu:after {
 			margin-top: -5px;
-
 			border-color: transparent;
 			border-right-color: #000;
 		}
 
 		ul a .toggle-submenu:after {
 			margin-top: -3px;
-			margin-right: -3px;
-
+			// margin-right: -3px;
 			border-color: transparent;
 			border-top-color: #000;
 		}
 
 		ul .is-open-submenu a .toggle-submenu:after {
 			margin-top: -8px;
-
 			border-color: transparent;
 			border-bottom-color: #000;
 		}
@@ -315,26 +274,49 @@ $mobile-font-color: #000000; // Menu font color.
 /* =Toggle button
 -------------------------------------------------------------- */
 %menu-toggle-button{
-	line-height: $line-height;
+	line-height: $line-height + $unit;
 	cursor: pointer;
 	text-align: left;
 	text-transform: uppercase;
 	background-color: #444;
 	color: #ffffff;
-	padding: 0 $font-size;
+	padding: 0 $font-size + $unit;
 	display: inline-block;
 }
 
 /* =Mobile menu
 -------------------------------------------------------------- */
 %is-mobile-menu {
-	li a {
-		background-color: $mobile-background-color;
-		color: $mobile-font-color;
+	text-align: left;
+	background-color: $mobile-background-color;
+
+	li {
+		display: block;
+
+		a {
+			display: block;
+			background-color: $mobile-background-color;
+			color: $mobile-font-color;
+
+			&:hover {
+				background-color: $mobile-background-color-hover;
+			}
+		}
 	}
 
-	a:hover {
-		background-color: $mobile-background-color-hover;
+	ul {
+		position: relative;
+		top: auto;
+		margin-top: 0;
+
+		li {
+			margin: 0 $font-size + $unit;
+		}
+
+		ul {
+			position: relative;
+			left: 0;
+		}
 	}
 }
 
