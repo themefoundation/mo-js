@@ -1,0 +1,125 @@
+/*
+
+The mo.js stylesheet is heavily influenced by the
+scalable and modular architecture for CSS as described
+by Jonathan Snook at http://smacss.com
+
+*/
+
+// TODO: keyboard nav should work regardless of whether it's a js menu or not.
+// this gets tricky, because keyboard nav works by adding removing classes much
+// like the js menu. However, they need to be able to work both together and independant.
+
+@import 'mo';
+
+.is-hidden-menu {
+	display: none;
+}
+
+// Menu toggle button styles.
+.menu-toggle-button {
+	line-height: 2.75rem;
+	cursor: pointer;
+	text-align: left;
+	text-transform: uppercase;
+	background-color: #444;
+	color: #ffffff;
+	padding: 0 1rem;
+	display: inline-block;
+}
+
+// Dropdown arrow styles
+.menu-arrows {
+	@include mo-css-arrows-horizontal( 2.75rem, 2.75rem, #444444 );
+}
+
+// First menu
+.site-header .menu {
+	@include mo-base;
+	@media (min-width:900px) {
+		@include mo-css-horizontal;
+		@include mo-css-horizontal-hover();
+	}
+
+	a {
+		padding: 0 1rem;
+		line-height: 2.75rem;
+		color: #444;
+	}
+
+	a:hover,
+	a:focus {
+		background: #eee;
+		outline: none;
+	}
+
+	ul a {
+		background: #eee;
+
+		&:hover,
+		&:focus {
+			background: #ddd;
+		}
+	}
+
+}
+
+// Second menu
+.test-menu2 {
+	@include mo-base;
+	@include mo-css-horizontal;
+	@media (min-width:900px) {
+		@include mo-css-horizontal-hover();
+		@include mo-borders( #000 );
+	}
+
+	a {
+		padding: 0 1rem;
+		line-height: 2.75rem;
+		color: #444;
+	}
+
+	a:hover,
+	a:focus {
+		background: #222;
+		color: #ddd;
+		outline: none;
+	}
+
+	ul a {
+		background: #222;
+		color: #ddd;
+
+		&:hover,
+		&:focus {
+			background-color: #111;
+		}
+	}
+
+}
+
+// Mobile menu
+.is-mobile-menu {
+	@include mo-mobile;
+
+	text-align: left;
+	background-color: #cccccc;
+
+	a {
+		background-color: #cccccc;
+		color: #222;
+
+		&:hover {
+			background-color: #bbbbbb;
+		}
+	}
+}
+
+// Javascript menu styles.
+.is-js-menu {
+	@include mo-js-arrows-horizontal( #444444 );
+}
+// Mobile menu styles.
+.is-mobile-menu {
+	@include mo-arrows-mobile( #999 );
+}

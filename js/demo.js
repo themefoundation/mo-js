@@ -1,11 +1,14 @@
 jQuery(function($) {
 	$('.test-menu').mojs({
 		toggleButtonID: 'mojs-button',
-		mobileMenuLocation: '.site-header'
+		toggleButtonContent: 'Menu #1',
+		mobileMenuLocation: '.site-header',
 	});
 
 	$('.test-menu2').mojs({
-		toggleButtonID: 'mojs-button',
+		// showArrows: false,
+		toggleButtonID: 'mojs-button2',
+		toggleButtonContent: 'Menu #2',
 	 	mobileMenuLocation: 'body'
 	});
 });

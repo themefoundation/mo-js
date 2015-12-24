@@ -1,0 +1,260 @@
+/// CSS menu reset
+@mixin mo-base {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	li.is-open-submenu > ul.sub-menu,
+	li.is-open-submenu:hover > ul.sub-menu {
+		display: block;
+	}
+}
+
+/// Top level horizontal menu styles.
+@mixin mo-css-horizontal {
+
+	> li {
+		display: inline-block;
+
+		> a {
+			display: inline-block;
+		}
+	}
+
+	li {
+		position: relative;
+		white-space: nowrap;
+	}
+}
+
+/// Submenu styles for horizontal menus.
+@mixin mo-css-horizontal-hover {
+	li:hover > ul {
+		display: block;
+	}
+
+	// Drop downs (first level)
+	ul {
+		position: absolute;
+		display: none;
+		// top: 100%;
+		left: 0;
+		z-index: 1000;
+		text-align: left;
+
+		a {
+			display: block;
+		}
+
+		// Drop downs (second level and beyond)
+		ul {
+			top: 0;
+			left: 100%;
+		}
+	}
+}
+
+
+/// Submenu arrow styles for horizontal menus.
+@mixin mo-css-arrows-horizontal( $button-width: 44px, $button-height: 44px, $arrow-color: #000000 ) {
+	@include mo-arrows-base( $button-width, $button-height );
+
+	// Determine arrow direction for top level menu items.
+	.toggle-submenu:after {
+		border: 5px solid transparent;
+		// border-top-color: $arrow-color;
+		@include mo-arrow-down( $arrow-color );
+	}
+
+	// Determine arrow direction for dropdown menu items.
+	ul .toggle-submenu:after {
+		@include mo-arrow-right( $arrow-color );
+	}
+}
+
+/// Submenu arrows for vertical menus.
+@mixin mo-css-arrows-vertical( $button-width: 44px, $button-height: 44px, $arrow-color: #000000 ) {
+	@include mo-arrows-base( $button-width, $button-height );
+
+	// Determine arrow direction for all menu items.
+	.toggle-submenu:after {
+		@include mo-arrow-right( $arrow-color );
+	}
+}
+
+/// Base arrow styles that apply to both horizontal and vertical menus, on both hover and Javascript menus.
+@mixin mo-arrows-base( $button-width: 44px, $button-height: 44px ) {
+	.toggle-submenu{
+		width: $button-width;
+		height: $button-height;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	.toggle-submenu:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 40%;
+		margin-top: -3px;
+		height: 0;
+		width: 0;
+	}
+
+	li.has-submenu > a {
+		padding-right: $button-width;
+	}
+}
+
+/// Mobile menu styles.
+@mixin mo-mobile {
+	@include mo-arrows-mobile;
+
+	li {
+		display: block !important;
+		position: relative;
+		white-space: nowrap;
+
+		a {
+			display: block !important;
+		}
+	}
+
+	ul {
+		position: relative;
+		top: auto;
+		margin-top: 0;
+
+		ul {
+			position: relative;
+			left: 0;
+		}
+	}
+}
+
+/// Arrow styles specific to the javascript enabled, horizontal menus. Used primarily on touch devices.
+@mixin mo-js-arrows-horizontal( $arrow-color: #000000 ) {
+	@include disable-hover;
+
+	&.menu-arrows {
+
+		.is-open-submenu > a .toggle-submenu:after {
+			@include mo-arrow-up( $arrow-color );
+		}
+
+		ul .is-open-submenu > a .toggle-submenu:after {
+			@include mo-arrow-left( $arrow-color );
+		}
+	}
+}
+
+/// Arrow styles specific to the javascript enabled, vertical menus. Used primarily on touch devices.
+@mixin mo-js-arrows-vertical( $arrow-color: #000000 ) {
+	@include js-menu-base;
+
+	&.menu-arrows {
+
+		.is-open-submenu > a .toggle-submenu:after {
+			@include mo-arrow-left( $arrow-color );
+		}
+	}
+}
+
+/// Arrow styles specific to mobile menus.
+@mixin mo-arrows-mobile( $arrow-color: #000000 ) {
+	@include disable-hover;
+
+	&.menu-arrows {
+
+		a .toggle-submenu:after {
+			@include mo-arrow-down( $arrow-color );
+		}
+
+		ul a .toggle-submenu:after {
+			@include mo-arrow-down( $arrow-color );
+		}
+
+		.is-open-submenu > a .toggle-submenu:after {
+			@include mo-arrow-up( $arrow-color );
+		}
+
+		ul .is-open-submenu > a .toggle-submenu:after {
+			@include mo-arrow-up( $arrow-color );
+		}
+	}
+}
+
+/// Disable submenus on hover.
+@mixin disable-hover {
+	li > ul.sub-menu,
+	li:hover > ul.sub-menu {
+		display: none;
+	}
+}
+
+/// Created arrow pointing down.
+@mixin mo-arrow-down( $arrow-color: #000000 ) {
+	margin-top: -3px;
+	border-color: transparent;
+	border-top-color: $arrow-color;
+}
+
+/// Created arrow pointing right.
+@mixin mo-arrow-right( $arrow-color: #000000 ) {
+	margin-top: -5px;
+	border-color: transparent;
+	border-left-color: $arrow-color;
+}
+
+/// Created arrow pointing up.
+@mixin mo-arrow-up( $arrow-color: #000000 ) {
+	margin-top: -8px;
+	border-color: transparent;
+	border-bottom-color: $arrow-color;
+}
+
+/// Created arrow pointing left.
+@mixin mo-arrow-left( $arrow-color: #000000 ) {
+	margin-top: -5px;
+	border-color: transparent;
+	border-right-color: $arrow-color;
+}
+
+/// Border styles for submenu items.
+@mixin mo-borders( $color: #000000 ) {
+
+	ul {
+		margin-top: -1px;
+
+		a {
+			border: 1px solid $color;
+			border-bottom: 0 solid;
+			outline: none;
+		}
+
+		li:last-child {
+			border-bottom: 1px solid $color;
+			height: auto;
+		}
+
+		ul {
+			margin-top: 0px;
+			margin-left: -1px;
+		}
+	}
+}

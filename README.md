@@ -3,12 +3,17 @@ Menu Object (mo.js)
 
 A mobile-first, progressively enhanced, standards based, responsive navigation menu system. Need any more buzzwords?
 
+
+mo.js is made up of two primary parts.
+
+1. Javascript that implements many of the mo.js features such as touch-enabled drop down menus and keyboard navigation.
+2. Sass mixins that you can use to quickly style your menu in a variety of ways.
+
 Here's how it works:
 
-* By default, menu items are centered, one following another. "Pills" if you're familiar with Twitter Bootstrap.
-* On larger screen sizes display a typical drop down menu via :hover.
-* If viewed on a touch device, replace :hover with arrows for expanding/contracting submenus.
-* Progressively enhance to support toggled visibility of a vertical mobile menu.
+* By default, menu items are displayed as a typical drop down menu via :hover.
+* If viewed on a touch device, the :hover functionality is replaced with arrow icons for expanding/contracting submenus via click instead of hover.
+* If viewed on a mobile device (or a small screen), the menu is hidden and a toggle button is created.
 * All menu levels should be available regardless of the device.
 * Should handle multiple menus without issue.
 

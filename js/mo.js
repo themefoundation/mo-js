@@ -1,11 +1,28 @@
-// TODO: Remove direct usage of classes (is-open-submenu)
 // TODO: close open submenus when focus leaves entire menu?
+/**
+ * @file file description
+ * @namespace index
+ */
+
+
 
 ;(function( $, window, undefined ) {
 	'use strict';
 
+	/**
+	 * Keeps track of multiple menus
+	 *
+	 * @type {int}
+	 */
 	var mojsMenuId = 0;
+
+	/**
+ 	 * The Menu class.
+	 * @class Menu
+	 * @memberof index
+	 */
 	var Menu = {
+		  /** @lends index.clsA.prototype */
 		options: {
 			mobileBreakpoint: 900,
 			breakpointType: 'screen', // 'screen' or 'element'
@@ -23,6 +40,13 @@
 			classToggleSubmenu: 'toggle-submenu'
 		},
 
+		/**
+		 * Initializes the menu system.
+		 * @function init
+		 * @memberof index.Menu
+		 * @param {object} el the HTML menu element.
+		 * @param {object} options the menu options specific to this menu element.
+		 */
 		init: function( el, options ) {
 			mojsMenuId++;
 			var menu = this,
@@ -88,12 +112,12 @@
 				// var mo = menu.options,
 				// 	parentmenu = $(this),
 				// 	submenu = parentmenu.children('ul');
-			
+
 				// if ( !menu.el.hasClass( mo.classIsMobile ) ) {
-				// 	var menupos = parentmenu.offset();					
+				// 	var menupos = parentmenu.offset();
 				// 	var diff = menupos.left + submenu.outerWidth() - $(window).width();
 				// 	if ( diff > 0 ) {
-				// 		submenu.css({ left: -diff }); 
+				// 		submenu.css({ left: -diff });
 				// 	}
 				// }
 			});
@@ -128,6 +152,9 @@
 		 * The menu container is used for determining the width of the menu when
 		 * it's hidden as well as to provide a context for inserting a toggle
 		 * button if one doesn't already exist.
+		 *
+		 * @function initContainer
+		 * @memberof index.Menu
 		 */
 		initContainer: function() {
 			// Select the container.
@@ -144,6 +171,9 @@
 		 *
 		 * The mobile toggle button will show or hide the menu when it's in a
 		 * mobile state.
+		 *
+		 * @function initToggleButton
+		 * @memberof index.Menu
 		 */
 		initToggleButton: function() {
 			var menu = this,
@@ -165,9 +195,9 @@
 					}
 					menu.toggleButton = $('.mojs-toggle-' + mojsMenuId).hide();
 					if ( mo.toggleButtonID ) {
-						menu.toggleButton.attr('id', mo.toggleButtonID);						
+						menu.toggleButton.attr('id', mo.toggleButtonID);
 					}
-				}	
+				}
 			}
 
 			// Add listener to the menu toggle button.
@@ -181,8 +211,12 @@
 		 *
 		 * Mobile state can be toggled either based on the width of the viewport
 		 * or the width of the menu's container element.
+		 *
+		 * @function toggleMobile
+		 * @memberof index.Menu
 		 */
 		toggleMobile: function() {
+			// alert('test');
 			var mo = this.options;
 			var width = '';
 
@@ -200,7 +234,7 @@
 
 				// Add the mobile, js, and hideMobile classes to the main menu element.
 				this.el.addClass(mo.classIsMobile).addClass(mo.classJS).addClass(mo.classIsHidden);
-
+				// alert(this.el.attr('id'));
 				// Moves the menus to the specified location.
 				if ( '' !== mo.mobileMenuLocation ) {
 
@@ -249,7 +283,8 @@
 		/**
 		 * Toggle the visibility of a submenu.
 		 *
-		 * @param {object} menuItem Submenu HTML element.
+		 * @function toggleSubmenu
+		 * @memberof index.Menu
 		 */
 		toggleSubmenu: function( menuItem ) {
 			var mo = this.options,
@@ -264,12 +299,15 @@
 			}
 		},
 
-				/**
+		/**
 		 * Handles keyboard navigation.
 		 *
 		 * The menu container is used for determining the width of the menu when
 		 * it's hidden as well as to provide a context for inserting a toggle
 		 * button if one doesn't already exist.
+		 *
+		 * @function keyNav
+		 * @memberof index.Menu
 		 */
 		keyNav: function(e) {
 			var menu = this,
@@ -406,8 +444,10 @@
 	};
 
 	/**
-	 * Add responsive menu support to jQuery.
+	 * mo.js - A jQuery plugin for creating better menus.
 	 *
+	 * @class mojs
+	 * @memberOf jQuery.fn
 	 * @param object settings The settings for this menu (options, custom class names, etc.).
 	 */
 	$.fn.mojs = function( settings ) {
@@ -461,7 +501,7 @@
 				// Media query didn't match, use window["inner" + Name]
 				size = window["inner" + Name];
 			}
-		
+
 			// Cleanup
 			documentElement.removeChild(bodyElement);
 		} else {

@@ -19,6 +19,7 @@
 
 		body {
 			font-family: 'Open Sans', helvetica, sans-serif;
+			padding-bottom: 10em;
 			/*background-color: #f6f6f6;*/
 		}
 
@@ -66,6 +67,10 @@
 			}
 		}
 
+		.example .code {
+			border: 3px solid #ddd;
+		}
+
 	</style>
 </head>
 
@@ -74,7 +79,7 @@
 <div id="page">
 
 <div class="site-header">
-	<ul class="menu test-menu">
+	<ul class="menu test-menu" id="first-menu">
 		<li><a href="http://example.com">Menu Item #1</a></li>
 		<li><a href="http://example.com">Menu Item #2</a>
 			<ul class="sub-menu">
@@ -111,7 +116,7 @@
 
 	<h1>mo.js</h1>
 
-	<ul class="test-menu2">
+	<ul class="test-menu2" id="second-menu">
 		<li><a href="http://example.com">Menu Item #4</a></li>
 		<li><a href="http://example.com">Menu Item #5</a>
 			<ul class="sub-menu">
@@ -147,6 +152,22 @@
 		<p>Modular Sass design. Simply apply the Sass placeholders to your menu and you're ready to go!</p>
 		<h4>jQuery</h4>
 		<p>Mobile menu, submenu arrows, and keyboard navigation are all added automatically.</p>
+	</div>
+
+	<div id="example-one" class="example">
+		<h3>Example #1</h3>
+		<p>Plain menu with no styling</p>
+		<div class="code">
+			<ul><li><a href="http://example.com">Menu Item #1</a></li><li><a href="http://example.com">Menu Item #2</a><ul class="sub-menu"><li><a href="http://example.com">Sub Menu Item #1</a></li><li><a href="http://example.com">Sub Menu Item #2</a><ul class="sub-menu"><li><a href="http://example.com">Sub Sub Menu Item #1</a></li></ul></li></ul></li><li><a href="http://example.com">Menu Item #3</a><ul class="sub-menu"><li><a href="http://example.com">Sub Menu Item #1</a></li><li><a href="http://example.com">Sub Menu Item #2</a><ul class="sub-menu"><li><a href="http://example.com">Sub Sub Menu Item #1</a><ul class="sub-menu"><li><a href="http://example.com">Triple Sub Menu Item #1</a></li><li><a href="http://example.com">Triple Sub Menu Item #2</a></li><li><a href="http://example.com">Triple Sub Menu Item #3</a></li><li><a href="http://example.com">Triple Sub Menu Item #4</a></li></ul></li><li><a href="http://example.com">Sub Sub Menu Item #2</a></li><li><a href="http://example.com">Sub Sub Menu Item #3</a></li><li><a href="http://example.com">Sub Sub Menu Item #4</a></li></ul></li><li><a href="http://example.com">Sub Menu Item #3</a></li></ul></li></ul>
+		</div>
+	</div>
+
+	<div id="example-two" class="example">
+		<h3>Example #2</h3>
+		<p>Plain menu with %mo base styling</p>
+		<div class="code">
+			<ul><li><a href="http://example.com">Menu Item #1</a></li><li><a href="http://example.com">Menu Item #2</a><ul class="sub-menu"><li><a href="http://example.com">Sub Menu Item #1</a></li><li><a href="http://example.com">Sub Menu Item #2</a><ul class="sub-menu"><li><a href="http://example.com">Sub Sub Menu Item #1</a></li></ul></li></ul></li><li><a href="http://example.com">Menu Item #3</a><ul class="sub-menu"><li><a href="http://example.com">Sub Menu Item #1</a></li><li><a href="http://example.com">Sub Menu Item #2</a><ul class="sub-menu"><li><a href="http://example.com">Sub Sub Menu Item #1</a><ul class="sub-menu"><li><a href="http://example.com">Triple Sub Menu Item #1</a></li><li><a href="http://example.com">Triple Sub Menu Item #2</a></li><li><a href="http://example.com">Triple Sub Menu Item #3</a></li><li><a href="http://example.com">Triple Sub Menu Item #4</a></li></ul></li><li><a href="http://example.com">Sub Sub Menu Item #2</a></li><li><a href="http://example.com">Sub Sub Menu Item #3</a></li><li><a href="http://example.com">Sub Sub Menu Item #4</a></li></ul></li><li><a href="http://example.com">Sub Menu Item #3</a></li></ul></li></ul>
+		</div>
 	</div>
 </div><!--.site-header-->
 

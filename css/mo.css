@@ -5,210 +5,10 @@ scalable and modular architecture for CSS as described
 by Jonathan Snook at http://smacss.com
 
 */
-/* =Variables
--------------------------------------------------------------- */
-/* =Reset
--------------------------------------------------------------- */
-.site-header .menu,
-.test-menu2, .site-header .is-mobile-menu, .site-header .menu *,
-.test-menu2 *, .site-header .is-mobile-menu * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* =Defaults
--------------------------------------------------------------- */
-.site-header .menu,
-.test-menu2, .site-header .is-mobile-menu {
-  text-align: center;
-}
-.site-header .is-hidden-menu.menu,
-.is-hidden-menu.test-menu2, .site-header .is-hidden-menu.is-mobile-menu {
+.is-hidden-menu {
   display: none;
 }
-.site-header .menu > li,
-.test-menu2 > li, .site-header .is-mobile-menu > li {
-  display: inline-block;
-}
-.site-header .menu > li > a,
-.test-menu2 > li > a, .site-header .is-mobile-menu > li > a {
-  display: inline-block;
-}
-.site-header .menu li,
-.test-menu2 li, .site-header .is-mobile-menu li {
-  position: relative;
-  white-space: nowrap;
-}
-.site-header .menu li:hover > ul,
-.test-menu2 li:hover > ul, .site-header .is-mobile-menu li:hover > ul {
-  display: block;
-}
-.site-header .menu li.is-open-submenu > ul,
-.test-menu2 li.is-open-submenu > ul, .site-header .is-mobile-menu li.is-open-submenu > ul, .site-header .menu li.is-open-submenu:hover > ul,
-.test-menu2 li.is-open-submenu:hover > ul, .site-header .is-mobile-menu li.is-open-submenu:hover > ul {
-  display: block;
-}
-.site-header .menu a,
-.test-menu2 a, .site-header .is-mobile-menu a {
-  position: relative;
-  padding: 0 1rem;
-  line-height: 2.75rem;
-  color: #224466;
-}
-.site-header .menu ul,
-.test-menu2 ul, .site-header .is-mobile-menu ul {
-  position: absolute;
-  display: none;
-  left: 0;
-  z-index: 1000;
-  text-align: left;
-}
-.site-header .menu ul a,
-.test-menu2 ul a, .site-header .is-mobile-menu ul a {
-  display: block;
-}
-.site-header .menu ul ul,
-.test-menu2 ul ul, .site-header .is-mobile-menu ul ul {
-  top: 0;
-  left: 100%;
-}
-@media (min-width: 1140px) {
-  .site-header .menu:after,
-  .test-menu2:after, .site-header .is-mobile-menu:after {
-    visibility: hidden;
-    display: block;
-    content: "";
-    clear: both;
-    height: 0;
-  }
-  .site-header .menu > li,
-  .test-menu2 > li, .site-header .is-mobile-menu > li {
-    display: block;
-    float: left;
-  }
-  .site-header .menu > li > a,
-  .test-menu2 > li > a, .site-header .is-mobile-menu > li > a {
-    margin: 0;
-  }
-  .site-header .menu ul,
-  .test-menu2 ul, .site-header .is-mobile-menu ul {
-    margin-top: 0;
-  }
-}
 
-/* =Block style
--------------------------------------------------------------- */
-.site-header .menu a:hover, .test-menu2 a:hover,
-.site-header .menu a:focus,
-.test-menu2 a:focus {
-  background: rgba(200, 200, 200, 0.5);
-  outline: none;
-}
-.site-header .menu ul a, .test-menu2 ul a {
-  background: rgba(255, 255, 255, 0.7);
-}
-
-/* =Border style
--------------------------------------------------------------- */
-@media (min-width: 900px) {
-  .test-menu2 ul {
-    margin-top: -1px;
-  }
-  .test-menu2 ul a {
-    border: 1px solid #68a;
-    height: 2.75rem;
-    border-bottom: 0 solid;
-    outline: none;
-  }
-  .test-menu2 ul li:last-child {
-    border-bottom: 1px solid #68a;
-    height: auto;
-  }
-  .test-menu2 ul ul {
-    margin-top: 0px;
-    margin-left: -1px;
-  }
-}
-
-/* =Arrows
--------------------------------------------------------------- */
-.site-header .menu-arrows.menu .toggle-submenu,
-.menu-arrows.test-menu2 .toggle-submenu, .site-header .menu-arrows.is-mobile-menu .toggle-submenu {
-  width: 2.75rem;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
-.site-header .menu-arrows.menu .toggle-submenu:after,
-.menu-arrows.test-menu2 .toggle-submenu:after, .site-header .menu-arrows.is-mobile-menu .toggle-submenu:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 40%;
-  margin-top: -3px;
-  height: 0;
-  width: 0;
-  border: 5px solid transparent;
-  border-top-color: #000;
-}
-.site-header .menu-arrows.menu ul .toggle-submenu:after,
-.menu-arrows.test-menu2 ul .toggle-submenu:after, .site-header .menu-arrows.is-mobile-menu ul .toggle-submenu:after {
-  margin-top: -5px;
-  border-color: transparent;
-  border-left-color: #000;
-}
-.site-header .menu-arrows.menu .has-submenu > a,
-.menu-arrows.test-menu2 .has-submenu > a, .site-header .menu-arrows.is-mobile-menu .has-submenu > a {
-  padding-right: 2.75rem;
-}
-
-/* =Javascript specific styles
--------------------------------------------------------------- */
-.site-header .is-js-menu.menu div,
-.is-js-menu.test-menu2 div, .site-header .is-js-menu.is-mobile-menu div {
-  display: block;
-}
-.site-header .is-js-menu.menu li:hover > ul,
-.is-js-menu.test-menu2 li:hover > ul, .site-header .is-js-menu.is-mobile-menu li:hover > ul {
-  display: none;
-}
-.site-header .menu-arrows.is-js-menu.menu .is-open-submenu > ul,
-.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > ul, .site-header .menu-arrows.is-js-menu.is-mobile-menu .is-open-submenu > ul {
-  display: block;
-}
-.site-header .menu-arrows.is-js-menu.menu .is-open-submenu > a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 .is-open-submenu > a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu .is-open-submenu > a .toggle-submenu:after {
-  margin-top: -8px;
-  border-color: transparent;
-  border-bottom-color: #000;
-}
-.site-header .menu-arrows.is-js-menu.menu ul .is-open-submenu > a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu > a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul .is-open-submenu > a .toggle-submenu:after {
-  margin-top: -5px;
-  border-color: transparent;
-  border-right-color: #000;
-}
-.site-header .menu-arrows.is-js-menu.menu ul a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul a .toggle-submenu:after {
-  margin-top: -3px;
-  border-color: transparent;
-  border-top-color: #000;
-}
-.site-header .menu-arrows.is-js-menu.menu ul .is-open-submenu a .toggle-submenu:after,
-.menu-arrows.is-js-menu.test-menu2 ul .is-open-submenu a .toggle-submenu:after, .site-header .menu-arrows.is-js-menu.is-mobile-menu ul .is-open-submenu a .toggle-submenu:after {
-  margin-top: -8px;
-  border-color: transparent;
-  border-bottom-color: #000;
-}
-
-/* =Toggle button
--------------------------------------------------------------- */
 .menu-toggle-button {
   line-height: 2.75rem;
   cursor: pointer;
@@ -220,37 +20,280 @@ by Jonathan Snook at http://smacss.com
   display: inline-block;
 }
 
-/* =Mobile menu
--------------------------------------------------------------- */
-.site-header .is-mobile-menu {
+.menu-arrows .toggle-submenu {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.menu-arrows .toggle-submenu:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 40%;
+  margin-top: -3px;
+  height: 0;
+  width: 0;
+}
+.menu-arrows li.has-submenu > a {
+  padding-right: 2.75rem;
+}
+.menu-arrows .toggle-submenu:after {
+  border: 5px solid transparent;
+  margin-top: -3px;
+  border-color: transparent;
+  border-top-color: #444444;
+}
+.menu-arrows ul .toggle-submenu:after {
+  margin-top: -5px;
+  border-color: transparent;
+  border-left-color: #444444;
+}
+
+.site-header .menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.site-header .menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.site-header .menu li.is-open-submenu > ul.sub-menu,
+.site-header .menu li.is-open-submenu:hover > ul.sub-menu {
+  display: block;
+}
+@media (min-width: 900px) {
+  .site-header .menu > li {
+    display: inline-block;
+  }
+  .site-header .menu > li > a {
+    display: inline-block;
+  }
+  .site-header .menu li {
+    position: relative;
+    white-space: nowrap;
+  }
+  .site-header .menu li:hover > ul {
+    display: block;
+  }
+  .site-header .menu ul {
+    position: absolute;
+    display: none;
+    left: 0;
+    z-index: 1000;
+    text-align: left;
+  }
+  .site-header .menu ul a {
+    display: block;
+  }
+  .site-header .menu ul ul {
+    top: 0;
+    left: 100%;
+  }
+}
+.site-header .menu a {
+  padding: 0 1rem;
+  line-height: 2.75rem;
+  color: #444;
+}
+.site-header .menu a:hover,
+.site-header .menu a:focus {
+  background: #eee;
+  outline: none;
+}
+.site-header .menu ul a {
+  background: #eee;
+}
+.site-header .menu ul a:hover, .site-header .menu ul a:focus {
+  background: #ddd;
+}
+
+.test-menu2 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.test-menu2 * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.test-menu2 li.is-open-submenu > ul.sub-menu,
+.test-menu2 li.is-open-submenu:hover > ul.sub-menu {
+  display: block;
+}
+.test-menu2 > li {
+  display: inline-block;
+}
+.test-menu2 > li > a {
+  display: inline-block;
+}
+.test-menu2 li {
+  position: relative;
+  white-space: nowrap;
+}
+@media (min-width: 900px) {
+  .test-menu2 li:hover > ul {
+    display: block;
+  }
+  .test-menu2 ul {
+    position: absolute;
+    display: none;
+    left: 0;
+    z-index: 1000;
+    text-align: left;
+  }
+  .test-menu2 ul a {
+    display: block;
+  }
+  .test-menu2 ul ul {
+    top: 0;
+    left: 100%;
+  }
+  .test-menu2 ul {
+    margin-top: -1px;
+  }
+  .test-menu2 ul a {
+    border: 1px solid #000;
+    border-bottom: 0 solid;
+    outline: none;
+  }
+  .test-menu2 ul li:last-child {
+    border-bottom: 1px solid #000;
+    height: auto;
+  }
+  .test-menu2 ul ul {
+    margin-top: 0px;
+    margin-left: -1px;
+  }
+}
+.test-menu2 a {
+  padding: 0 1rem;
+  line-height: 2.75rem;
+  color: #444;
+}
+.test-menu2 a:hover,
+.test-menu2 a:focus {
+  background: #222;
+  color: #ddd;
+  outline: none;
+}
+.test-menu2 ul a {
+  background: #222;
+  color: #ddd;
+}
+.test-menu2 ul a:hover, .test-menu2 ul a:focus {
+  background-color: #111;
+}
+
+.is-mobile-menu {
   text-align: left;
-  background-color: #eee;
+  background-color: #cccccc;
 }
-.site-header .is-mobile-menu li {
-  display: block;
+.is-mobile-menu li > ul.sub-menu,
+.is-mobile-menu li:hover > ul.sub-menu {
+  display: none;
 }
-.site-header .is-mobile-menu li a {
-  display: block;
-  background-color: #eee;
-  color: #000000;
+.is-mobile-menu.menu-arrows a .toggle-submenu:after {
+  margin-top: -3px;
+  border-color: transparent;
+  border-top-color: #000000;
 }
-.site-header .is-mobile-menu li a:hover {
-  background-color: #ddd;
+.is-mobile-menu.menu-arrows ul a .toggle-submenu:after {
+  margin-top: -3px;
+  border-color: transparent;
+  border-top-color: #000000;
 }
-.site-header .is-mobile-menu ul {
+.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #000000;
+}
+.is-mobile-menu.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #000000;
+}
+.is-mobile-menu li {
+  display: block !important;
+  position: relative;
+  white-space: nowrap;
+}
+.is-mobile-menu li a {
+  display: block !important;
+}
+.is-mobile-menu ul {
   position: relative;
   top: auto;
   margin-top: 0;
 }
-.site-header .is-mobile-menu ul li {
-  margin: 0 1rem;
-}
-.site-header .is-mobile-menu ul ul {
+.is-mobile-menu ul ul {
   position: relative;
   left: 0;
 }
+.is-mobile-menu a {
+  background-color: #cccccc;
+  color: #222;
+}
+.is-mobile-menu a:hover {
+  background-color: #bbbbbb;
+}
 
-/* =Applied placeholders
--------------------------------------------------------------- */
+.is-js-menu li > ul.sub-menu,
+.is-js-menu li:hover > ul.sub-menu {
+  display: none;
+}
+.is-js-menu.menu-arrows .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #444444;
+}
+.is-js-menu.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -5px;
+  border-color: transparent;
+  border-right-color: #444444;
+}
+
+.is-mobile-menu li > ul.sub-menu,
+.is-mobile-menu li:hover > ul.sub-menu {
+  display: none;
+}
+.is-mobile-menu.menu-arrows a .toggle-submenu:after {
+  margin-top: -3px;
+  border-color: transparent;
+  border-top-color: #999;
+}
+.is-mobile-menu.menu-arrows ul a .toggle-submenu:after {
+  margin-top: -3px;
+  border-color: transparent;
+  border-top-color: #999;
+}
+.is-mobile-menu.menu-arrows .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #999;
+}
+.is-mobile-menu.menu-arrows ul .is-open-submenu > a .toggle-submenu:after {
+  margin-top: -8px;
+  border-color: transparent;
+  border-bottom-color: #999;
+}
 
 /*# sourceMappingURL=mo.css.map */

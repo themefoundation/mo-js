@@ -1,0 +1,21 @@
+mobile
+
+dropdown direction always down
+dropdown arrows up/down
+hover disabled always
+
+tablet
+
+dropdown direction down/right
+dropdown arrows up/down/left/right
+hover enabled unless touch device
+
+desktop
+
+dropdown direction down/right
+dropdown arrows up/down/left/right
+hover enabled unless touch device
+
+js
+mobile always js
+others js only if touch device

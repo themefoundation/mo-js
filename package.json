@@ -1,6 +1,6 @@
 {
-  "name": "thmfdn",
-  "version": "0.0.1",
+  "name": "mo.js",
+  "version": "2.0.0",
   "private": true,
   "devDependencies": {
     "grunt": "latest",
