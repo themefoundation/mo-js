@@ -66,7 +66,6 @@
 	}
 }
 
-
 /// Submenu arrow styles for horizontal menus.
 @mixin mo-css-arrows-horizontal( $button-width: 44px, $button-height: 44px, $arrow-color: #000000 ) {
 	@include mo-arrows-base( $button-width, $button-height );
@@ -122,8 +121,9 @@
 }
 
 /// Mobile menu styles.
-@mixin mo-mobile {
-	@include mo-arrows-mobile;
+@mixin mo-mobile( $button-width: 44px, $button-height: 44px, $arrow-color: #000000 ) {
+	@include mo-css-arrows-horizontal( $button-width, $button-height, $arrow-color );
+	@include mo-arrows-mobile ( $arrow-color );
 
 	li {
 		display: block !important;
@@ -208,7 +208,7 @@
 }
 
 /// Created arrow pointing down.
-@mixin mo-arrow-down( $arrow-color: #000000 ) {
+@mixin mo-arrow-down( $arrow-color: '#000000' ) {
 	margin-top: -3px;
 	border-color: transparent;
 	border-top-color: $arrow-color;

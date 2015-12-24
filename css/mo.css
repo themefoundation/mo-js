@@ -207,6 +207,38 @@ by Jonathan Snook at http://smacss.com
   text-align: left;
   background-color: #cccccc;
 }
+.is-mobile-menu .toggle-submenu {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.is-mobile-menu .toggle-submenu:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 40%;
+  margin-top: -3px;
+  height: 0;
+  width: 0;
+}
+.is-mobile-menu li.has-submenu > a {
+  padding-right: 44px;
+}
+.is-mobile-menu .toggle-submenu:after {
+  border: 5px solid transparent;
+  margin-top: -3px;
+  border-color: transparent;
+  border-top-color: #000000;
+}
+.is-mobile-menu ul .toggle-submenu:after {
+  margin-top: -5px;
+  border-color: transparent;
+  border-left-color: #000000;
+}
 .is-mobile-menu li > ul.sub-menu,
 .is-mobile-menu li:hover > ul.sub-menu {
   display: none;
